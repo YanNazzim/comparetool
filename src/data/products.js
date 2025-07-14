@@ -21,22 +21,44 @@ const allBrandsData = [
                       {
                         id: 'sargent-8304',
                         functionName: '04 Function - Night Latch (ANSI 03)',
-                        description: `Key Retracts Latch - Standalone Pull Required <br /><br /> While it has a Narrow Stile Look, the device itself is still Wide Stile due to the size of the Mortise lockbody inside the door`,
+                        description: `Key Retracts Latch - Does not come with trim so Standalone Pull Required<br /><br /> This is priced as Exit Only (10 function) and then add the price of cylinder ($130) <br /><br /> While it has a Narrow Stile Look, the device itself is still Wide Stile due to the size of the Mortise lockbody inside the door`,
                         minPrice: 3885.00,
                         maxPrice: 5456.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: ['VD-9875-NL-OP'],
                         prefixAddOns: [
-                            { prefix: 'ET', addOnPrice: 50.00 },
-                            { prefix: 'EL', addOnPrice: 100.00 },
+                            { prefix: 'AL - Alarmed', addOnPrice: 828.00 },
+                            { prefix: 'LD - Completely removes dogging from device', addOnPrice: 0.00 },
+                            { prefix: 'LC - Completely removes Any Cylinders from device', addOnPrice: -130.00 },
+                            { prefix: '12 - Fire Rated', addOnPrice: 249.00 },
+                            { prefix: '16 - Cylinder Dogging (Not available with 12-, 59-, AL-)', addOnPrice: 202.00 },
+                            { prefix: '19 - Removes the Black Lexan Pad (All Steel Finish on rail) ', addOnPrice: 0.00 },
+                            { prefix: '31 - Thicker Doors over 1-3/4" and up to 2-1/4" ', addOnPrice: 0.00 },
+                            { prefix: '36 - 6 Lobe Torx Security Screws ', addOnPrice: 67.00 },
+                            { prefix: '37 - Spanner Head Security Screws ', addOnPrice: 43.00 },
+                            { prefix: '43 - Flush End Cap ', addOnPrice: 0.00 },
+                            { prefix: '53 - Latchbolt Monitoring ', addOnPrice: 367.00 },
+                            { prefix: '54 - Outside Lever Monitoring ', addOnPrice: 332.00 },
+                            { prefix: '55 - Request to Exit (Signal Switch in Rail) ', addOnPrice: 362.00 },
+                            { prefix: '56 - Motorized Electric Latch Retraction (Removes Hex dogging if applicable) ', addOnPrice: 1277.00 },
+                            { prefix: '56 - Motorized Electric Latch Retraction W/ Hex Key Dogging ', addOnPrice: 1277.00 },
+                            { prefix: '58 - Electric Dogging ', addOnPrice: 698.00 },
+                            { prefix: '59 - Electroguard Delayed Egress ', addOnPrice: 2498.00 },
+                            { prefix: '85 - Abrasive Strip on Push Rail ', addOnPrice: 136.00 },
+                            { prefix: 'CPC - Clear Powder Coat (Recommended for devices on exterior applications) ', addOnPrice: 315.00 },
+                            { prefix: 'SG - MicroShield Anti-Microbial Powder Coat (Not available for 10B Finish)', addOnPrice: 119.00 },
+                            { prefix: 'PL - SARGuide™ PL – Photoluminescent Tape - (Pushbar w/o Lexan Touchpad - 19 option is supplied as standard)', addOnPrice: 510.00 },
+                            { prefix: 'TB - Device supplied with ThruBolts (SNB)', addOnPrice: 35.00 },
+                            
+
                         ],
                       },
                       {
                         id: 'sargent-8304-et',
-                        functionName: 'Night Latch ET (ANSI 03)',
-                        description: `Key Retracts Latch.`,
-                        minPrice: 425.00,
-                        maxPrice: 475.00,
+                        functionName: '04 Function - Night Latch With ET Trim (ANSI 03)',
+                        description: `Key Retracts Latch - Lever is always Rigid <br /><br /> While it has a Narrow Stile Look, the device itself is still Wide Stile due to the size of the Mortise lockbody inside the door`,
+                        minPrice: 3885.00,
+                        maxPrice: 5456.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
                         prefixAddOns: [
@@ -1731,7 +1753,7 @@ const allBrandsData = [
             name: 'Full Exit Devices',
             series: [
               {
-                seriesName: '98 Series',
+                seriesName: '98/99 Series',
                 models: [
                   {
                     modelNumber: '9875/9975 Mortise Exit Device',
