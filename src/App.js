@@ -72,13 +72,15 @@ function App() {
 
   return (
     <div className="App">
-      <img src={Images.AccentraLogo} alt="Accentra Logo" className="Logo"/>
-      <img src={Images.CorbinRusswinLogo} alt="Corbin Russwin Logo" className="Logo"/>
-      <img src={Images.SargentLogo} alt="Sargent Logo" className="Logo"/>
-      <img src={Images.BESTAccessLogo} alt="BEST Access Logo" className="Logo"/>
-      <img src={Images.VonDuprinLogo} alt="Von Duprin Logo" className="Logo"/>
-      <img src={Images.SchlageLogo} alt="Schlage Logo" className="Logo"/>
-      <h1>ASSA ABLOY Product Comparison Tool</h1>
+      <div className="navbar-header"> {/* New Wrapper Div */}
+        <img src={Images.AccentraLogo} alt="Accentra Logo" className="Logo"/>
+        <img src={Images.CorbinRusswinLogo} alt="Corbin Russwin Logo" className="Logo"/>
+        <img src={Images.SargentLogo} alt="Sargent Logo" className="Logo"/>
+        <img src={Images.BESTAccessLogo} alt="BEST Access Logo" className="Logo"/>
+        <img src={Images.VonDuprinLogo} alt="Von Duprin Logo" className="Logo"/>
+        <img src={Images.SchlageLogo} alt="Schlage Logo" className="Logo"/>
+        <h1>ASSA ABLOY Product Comparison Tool</h1>
+      </div> {/* End of New Wrapper Div */}
 
       <div className="selection-area">
         <ProductDrillDownSelector

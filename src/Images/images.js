@@ -18,7 +18,7 @@ const Images = {
 
   // Von Duprin
   VonDuprinLogo: require('./Von Duprin Logo.png'),
-
+  VD9875: require('./VD9875.png'),
   // Schlage
   SchlageLogo: require('./Schlage Logo.png'),
 };
