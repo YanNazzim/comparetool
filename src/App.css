@@ -130,7 +130,7 @@ select:focus {
 
 /* Conditional Brand Borders - unchanged */
 .product-card.sargent {
-  border-left-color: #002D5B; /* Navy Blue */
+  border-left-color: #0063c7; /* Navy Blue */
 }
 
 .product-card.corbin, .product-card.best {
