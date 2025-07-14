@@ -1,7 +1,7 @@
 // src/App.js
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react'; // Import useRef and useEffect
 import './App.css';
-import allBrandsData from './data/products';
+import allBrandsData from './data/products'; // cite: 2
 import ProductDrillDownSelector from './components/ProductDrillDownSelector';
 import ComparisonDisplay from './components/ComparisonDisplay';
 import Images from './Images/images'; // Import the images module
@@ -15,12 +15,15 @@ function App() {
   const [isPrefixesModalOpen, setIsPrefixesModalOpen] = useState(false); // NEW: State for modal visibility
   const [productForPrefixesModal, setProductForPrefixesModal] = useState(null); // NEW: State for product data to show in modal
 
+  // Create a ref for the comparison container
+  const comparisonRef = useRef(null);
+
   // Helper to get unique major categories
   const getUniqueMajorCategories = () => {
     const categories = new Set();
-    allBrandsData.forEach(brand => {
-      brand.categories.forEach(category => {
-        categories.add(category.name);
+    allBrandsData.forEach(brand => { // cite: 2
+      brand.categories.forEach(category => { // cite: 2
+        categories.add(category.name); // cite: 2
       });
     });
     return Array.from(categories);
@@ -30,12 +33,12 @@ function App() {
 
   const findProductById = (productId) => {
     if (!productId) return null;
-    for (const brandData of allBrandsData) {
-      for (const categoryData of brandData.categories) {
-        for (const subCategoryData of categoryData.subCategories) {
-          for (const seriesData of subCategoryData.series) {
-            for (const modelData of seriesData.models) {
-              const foundFunction = modelData.functions.find(f => f.id === productId);
+    for (const brandData of allBrandsData) { // cite: 2
+      for (const categoryData of brandData.categories) { // cite: 2
+        for (const subCategoryData of categoryData.subCategories) { // cite: 2
+          for (const seriesData of subCategoryData.series) { // cite: 2
+            for (const modelData of seriesData.models) { // cite: 2
+              const foundFunction = modelData.functions.find(f => f.id === productId); // cite: 2
               if (foundFunction) {
                 return {
                   ...foundFunction,
@@ -57,7 +60,7 @@ function App() {
   const findEquivalentProduct = (product1, targetBrandName) => {
     if (!product1 || !targetBrandName) return null;
 
-    for (const equivalentId of product1.equivalentProductIds) {
+    for (const equivalentId of product1.equivalentProductIds) { // cite: 2
       const equivalentProduct = findProductById(equivalentId);
       if (equivalentProduct && equivalentProduct.brand === targetBrandName) {
           return equivalentProduct;
@@ -99,16 +102,24 @@ function App() {
 
   // NEW: Handlers for Prefixes Modal
   const handleShowPrefixesModal = (product) => {
-    setProductForPrefixesModal(product);
-    setIsPrefixesModalOpen(true);
+    setProductForPrefixesModal(product); // cite: 4
+    setIsPrefixesModalOpen(true); // cite: 4
   };
 
   const handleClosePrefixesModal = () => {
-    setIsPrefixesModalOpen(false);
-    setProductForPrefixesModal(null);
+    setIsPrefixesModalOpen(false); // cite: 4
+    setProductForPrefixesModal(null); // cite: 4
   };
 
-  const allBrandNames = allBrandsData.map(b => b.brand);
+  const allBrandNames = allBrandsData.map(b => b.brand); // cite: 2
+
+  // Effect to scroll to the comparison section when both products are selected
+  useEffect(() => {
+    if (selectedProduct1 && comparedProduct2 && comparisonRef.current) {
+      comparisonRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selectedProduct1, comparedProduct2]);
+
 
   return (
     <div className="App">
@@ -141,7 +152,7 @@ function App() {
         <>
           <div className="selection-area">
             <ProductDrillDownSelector
-              allBrandsData={allBrandsData}
+              allBrandsData={allBrandsData} // cite: 2
               onSelectFinalProduct={handleProduct1FinalSelection}
               selectedProductId={selectedProduct1?.id || ''}
               selectedBrandName={selectedProduct1?.brand || ''}
@@ -171,11 +182,13 @@ function App() {
       )}
 
       {(selectedProduct1 && comparedProduct2) && (
-        <ComparisonDisplay
-          product1={selectedProduct1}
-          product2={comparedProduct2}
-          onShowPrefixes={handleShowPrefixesModal} // Pass modal handler to ComparisonDisplay
-        />
+        <div ref={comparisonRef}> {/* Attach the ref here */}
+          <ComparisonDisplay
+            product1={selectedProduct1}
+            product2={comparedProduct2}
+            onShowPrefixes={handleShowPrefixesModal} // Pass modal handler to ComparisonDisplay
+          />
+        </div>
       )}
 
       {selectedMajorCategory && !selectedProduct1 && (
@@ -194,9 +207,9 @@ function App() {
 
       {/* NEW: Prefixes Modal */}
       <PrefixesModal
-        isOpen={isPrefixesModalOpen}
-        onClose={handleClosePrefixesModal}
-        product={productForPrefixesModal}
+        isOpen={isPrefixesModalOpen} // cite: 4
+        onClose={handleClosePrefixesModal} // cite: 4
+        product={productForPrefixesModal} // cite: 4
       />
     </div>
   );

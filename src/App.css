@@ -11,7 +11,7 @@ body {
 .App {
   padding: 0; /* Remove top/bottom padding from App to allow full-width header */
   text-align: center;
-  max-width: 1300px;
+  max-width: 100%; /* Changed to take up max width */
   margin: 0 auto; /* Center the entire application container */
 }
 
@@ -110,8 +110,9 @@ h1 { /* General H1 style, mainly for the main title within navbar-header */
 
 .selection-area {
   display: flex;
+  flex-direction: column; /* Changed to column to stack vertically */
   justify-content: center;
-  gap: 30px;
+  gap: 30px; /* Gap between the product selectors */
   margin-bottom: 50px;
   flex-wrap: wrap;
   padding: 0 30px; /* Add horizontal padding to align with header content */
@@ -122,11 +123,13 @@ h1 { /* General H1 style, mainly for the main title within navbar-header */
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  min-width: 300px; /* Increased min-width for better symmetry */
+  min-width: unset; /* Remove min-width */
+  width: 100%; /* Take full width of parent */
+  max-width: 100%; /* Ensure it doesn't exceed parent */
   text-align: left;
   border: 1px solid #e0e0e0;
-  flex: 1; /* Allow cards to grow */
-  max-width: 48%; /* Ensure two cards per row on larger screens */
+  flex: none; /* Do not grow */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .product-selector h2, .brand2-selector h2,
@@ -155,6 +158,31 @@ select:focus {
   border-color: #4A90E2; /* A more distinct blue for focus */
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
 }
+
+/* NEW: Styles for horizontal drilldown dropdowns */
+.drilldown-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between dropdown items */
+}
+
+.drilldown-item {
+  flex: 1 1 calc(50% - 10px); /* Two columns, responsive */
+  box-sizing: border-box;
+}
+
+.drilldown-item h2,
+.drilldown-item h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em; /* Adjust font size for better fit */
+}
+
+/* Ensure select elements within drilldown-item take full width of their container */
+.drilldown-item select {
+  margin-bottom: 0; /* Remove extra margin */
+}
+
 
 .comparison-container {
   display: flex;
@@ -452,4 +480,20 @@ select:focus {
   margin: 0;
   color: #5f6c7a;
   font-size: 0.9em;
+}
+
+/* Pulsing border animation for new dropdowns */
+.pulsing-border {
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    border-color: #a8b8c5; /* Start with the normal border color */
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); /* No initial shadow */
+  }
+  100% {
+    border-color: #007bff; /* Glow color */
+    box-shadow: 0 0 15px 8px rgba(0, 123, 255, 0.7); /* Stronger glow with wider spread */
+  }
 }
