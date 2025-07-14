@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selectedBrandName, selectedProductId, labelPrefix }) {
   const [selectedBrand, setSelectedBrand] = useState(selectedBrandName || '');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedSubCategory, setSelectedSubCategory] = useState(''); // NEW state for sub-category
   const [selectedSeries, setSelectedSeries] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedFunction, setSelectedFunction] = useState(selectedProductId || '');
@@ -15,12 +16,14 @@ function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selecte
     if (selectedBrandName !== selectedBrand) {
       setSelectedBrand(selectedBrandName || '');
       setSelectedCategory('');
+      setSelectedSubCategory(''); // Reset sub-category too
       setSelectedSeries('');
       setSelectedModel('');
       setSelectedFunction('');
     } else if (!selectedBrandName && selectedBrand) { // If parent clears brand, reset everything
       setSelectedBrand('');
       setSelectedCategory('');
+      setSelectedSubCategory(''); // Reset sub-category too
       setSelectedSeries('');
       setSelectedModel('');
       setSelectedFunction('');
@@ -33,9 +36,11 @@ function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selecte
   }, [selectedBrandName, selectedProductId]); // Dependencies are only the props.
 
   // Determine if the model selection should be skipped for Sargent Mortise/Bored Locks
+  // Updated logic to check subCategory as well
   const shouldSkipModelSelection =
     (selectedBrand === 'Sargent' || selectedBrand === 'Corbin Russwin') &&
-    (selectedCategory === 'Mortise Locks' || selectedCategory === 'Bored Locks');
+    (selectedCategory === 'Mortise Locks' || selectedCategory === 'Bored Locks') &&
+    (selectedSubCategory === 'Mortise Locks' || selectedSubCategory === 'Bored Locks'); // Assuming sub-category name matches
 
   // Helper functions to get data based on current selections
   const getCategories = (brandName) => {
@@ -43,29 +48,41 @@ function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selecte
     return brand ? brand.categories : [];
   };
 
-  const getSeries = (brandName, categoryName) => {
+  // NEW Helper function to get sub-categories
+  const getSubCategories = (brandName, categoryName) => {
     const brand = allBrandsData.find(b => b.brand === brandName);
     const category = brand?.categories.find(c => c.name === categoryName);
-    return category ? category.series : [];
+    return category ? category.subCategories : []; // Access subCategories
   };
 
-  const getModels = (brandName, categoryName, seriesName) => {
+  // Modified getSeries to depend on subCategory
+  const getSeries = (brandName, categoryName, subCategoryName) => {
     const brand = allBrandsData.find(b => b.brand === brandName);
     const category = brand?.categories.find(c => c.name === categoryName);
-    const series = category?.series.find(s => s.seriesName === seriesName);
+    const subCategory = category?.subCategories.find(sc => sc.name === subCategoryName); // Find sub-category
+    return subCategory ? subCategory.series : []; // Return series from sub-category
+  };
+
+  // Modified getModels to depend on subCategory
+  const getModels = (brandName, categoryName, subCategoryName, seriesName) => {
+    const brand = allBrandsData.find(b => b.brand === brandName);
+    const category = brand?.categories.find(c => c.name === categoryName);
+    const subCategory = category?.subCategories.find(sc => sc.name === subCategoryName); // Find sub-category
+    const series = subCategory?.series.find(s => s.seriesName === seriesName); // Find series within sub-category
     return series ? series.models : [];
   };
 
-  // Modified getFunctions to handle skipping model selection
-  const getFunctions = (brandName, categoryName, seriesName, modelNumber) => {
+  // Modified getFunctions to handle skipping model selection and new sub-category
+  const getFunctions = (brandName, categoryName, subCategoryName, seriesName, modelNumber) => {
     const brand = allBrandsData.find(b => b.brand === brandName);
     const category = brand?.categories.find(c => c.name === categoryName);
-    const series = category?.series.find(s => s.seriesName === seriesName);
+    const subCategory = category?.subCategories.find(sc => sc.name === subCategoryName); // Find sub-category
+    const series = subCategory?.series.find(s => s.seriesName === seriesName); // Find series within sub-category
 
     if (!series) return [];
 
-    // If model selection is skipped for Sargent Mortise/Bored Locks,
-    // return all functions from all models within the selected series
+    // If model selection is skipped, return all functions from all models within the selected series
+    // Adjusted logic for shouldSkipModelSelection
     if (shouldSkipModelSelection && (brandName === 'Sargent' || brandName === 'Corbin Russwin') && (categoryName === 'Mortise Locks' || categoryName === 'Bored Locks')) {
       let allSeriesFunctions = [];
       series.models.forEach(model => {
@@ -85,7 +102,9 @@ function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selecte
     const brand = e.target.value;
     setSelectedBrand(brand);
     setSelectedCategory('');
+    setSelectedSubCategory(''); // Reset sub-category on brand change
     setSelectedSeries('');
+    setSelectedModel('');
     setSelectedFunction('');
     onSelectFinalProduct(null); // Reset product on higher-level change
   };
@@ -93,8 +112,19 @@ function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selecte
   const handleCategoryChange = (e) => {
     const category = e.target.value;
     setSelectedCategory(category);
+    setSelectedSubCategory(''); // Reset sub-category on category change
     setSelectedSeries('');
     setSelectedModel(''); // Always reset model
+    setSelectedFunction('');
+    onSelectFinalProduct(null);
+  };
+
+  // NEW: Handler for sub-category change
+  const handleSubCategoryChange = (e) => {
+    const subCategory = e.target.value;
+    setSelectedSubCategory(subCategory);
+    setSelectedSeries(''); // Reset series on sub-category change
+    setSelectedModel('');
     setSelectedFunction('');
     onSelectFinalProduct(null);
   };
@@ -122,14 +152,16 @@ function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selecte
 
   const brands = allBrandsData.map(b => b.brand);
   const categories = getCategories(selectedBrand);
-  const series = getSeries(selectedBrand, selectedCategory);
+  const subCategories = getSubCategories(selectedBrand, selectedCategory); // Get sub-categories
+  const series = getSeries(selectedBrand, selectedCategory, selectedSubCategory); // Pass selected sub-category
   // models are only relevant if not skipping the model selection
-  const models = getModels(selectedBrand, selectedCategory, selectedSeries);
+  const models = getModels(selectedBrand, selectedCategory, selectedSubCategory, selectedSeries); // Pass selected sub-category
 
-  // Functions are retrieved based on whether model selection is skipped or not
+  // Functions are retrieved based on whether model selection is skipped or not, and now sub-category
   const functions = getFunctions(
     selectedBrand,
     selectedCategory,
+    selectedSubCategory, // Pass selected sub-category
     selectedSeries,
     shouldSkipModelSelection ? null : selectedModel // Pass null model if skipping
   );
@@ -161,7 +193,21 @@ function ProductDrillDownSelector({ allBrandsData, onSelectFinalProduct, selecte
         </>
       )}
 
-      {selectedCategory && (
+      {selectedCategory && ( // NEW: Conditionally render Sub-Category selector
+        <>
+          <h3>Select Sub-Category:</h3>
+          <select value={selectedSubCategory} onChange={handleSubCategoryChange}>
+            <option value="">Select Sub-Category</option>
+            {subCategories.map((subCat) => (
+              <option key={subCat.name} value={subCat.name}>
+                {subCat.name}
+              </option>
+            ))}
+          </select>
+        </>
+      )}
+
+      {selectedSubCategory && ( // Series depends on sub-category
         <>
           <h3>Select Series:</h3>
           <select value={selectedSeries} onChange={handleSeriesChange}>
