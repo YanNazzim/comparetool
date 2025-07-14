@@ -1,6 +1,7 @@
+// src/components/ComparisonDisplay.js
 import React from 'react';
 
-function ComparisonDisplay({ product1, product2 }) {
+function ComparisonDisplay({ product1, product2, onShowPrefixes }) { // Added onShowPrefixes prop
   if (!product1 || !product2) {
     return null; // Don't render if products aren't selected
   }
@@ -38,6 +39,12 @@ function ComparisonDisplay({ product1, product2 }) {
         </p>
         <h4>Description:</h4>
         <p dangerouslySetInnerHTML={{ __html: product1.description }}></p>
+        {/* NEW: Button to show prefixes modal for Product 1 */}
+        {product1.prefixAddOns && product1.prefixAddOns.length > 0 && (
+            <button className="show-prefixes-button" onClick={() => onShowPrefixes(product1)}>
+                View Prefix Price Add-ons
+            </button>
+        )}
       </div>
 
       <div className={`product-card ${product2BrandClass}`}>
@@ -50,6 +57,12 @@ function ComparisonDisplay({ product1, product2 }) {
         </p>
         <h4>Description:</h4>
         <p dangerouslySetInnerHTML={{ __html: product2.description }}></p>
+        {/* NEW: Button to show prefixes modal for Product 2 */}
+        {product2.prefixAddOns && product2.prefixAddOns.length > 0 && (
+            <button className="show-prefixes-button" onClick={() => onShowPrefixes(product2)}>
+                View Prefix Price Add-ons
+            </button>
+        )}
       </div>
     </div>
   );

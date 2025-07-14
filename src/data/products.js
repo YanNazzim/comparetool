@@ -1,3 +1,4 @@
+// src/data/products.js
 import Images from '../Images/images'; // Import the images module
 
 const allBrandsData = [
@@ -6,9 +7,9 @@ const allBrandsData = [
     categories: [
       {
         name: 'Exit Devices',
-        subCategories: [ // NEW: Sub-categories for Exit Devices
+        subCategories: [
           {
-            name: 'Full Exit Devices', // Existing data goes here
+            name: 'Full Exit Devices',
             series: [
               {
                 seriesName: '80 Series',
@@ -25,6 +26,10 @@ const allBrandsData = [
                         maxPrice: 5456.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: ['VD-9875-NL-OP'],
+                        prefixAddOns: [
+                            { prefix: 'ET', addOnPrice: 50.00 },
+                            { prefix: 'EL', addOnPrice: 100.00 },
+                        ],
                       },
                       {
                         id: 'sargent-8304-et',
@@ -34,6 +39,9 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [
+                            { prefix: 'HW', addOnPrice: 15.00 },
+                        ],
                       },
                       {
                         id: 'sargent-8306-et',
@@ -43,6 +51,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8310',
@@ -52,6 +61,9 @@ const allBrandsData = [
                         maxPrice: 425.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [
+                            { prefix: 'RM', addOnPrice: 20.00 },
+                        ],
                       },
                       {
                         id: 'sargent-8310-et-pull',
@@ -61,6 +73,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: ['best-3000-dt', 'vond-9800-dt'],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8313-et',
@@ -70,6 +83,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8315-et',
@@ -79,6 +93,7 @@ const allBrandsData = [
                         maxPrice: 425.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8340-et',
@@ -88,6 +103,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: ['best-3000-dt', 'vond-9800-dt'],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8343-et',
@@ -97,6 +113,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8344-et',
@@ -106,6 +123,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8373-et',
@@ -115,6 +133,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8374-et',
@@ -124,6 +143,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8375-et',
@@ -133,6 +153,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8376-et',
@@ -142,6 +163,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SAR8300,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -157,6 +179,9 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [
+                            { prefix: 'RM', addOnPrice: 25.00 },
+                        ],
                       },
                       {
                         id: 'sargent-md8410',
@@ -166,6 +191,7 @@ const allBrandsData = [
                         maxPrice: 555.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8410-et-pull',
@@ -175,6 +201,7 @@ const allBrandsData = [
                         maxPrice: 555.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8413-et',
@@ -184,6 +211,7 @@ const allBrandsData = [
                         maxPrice: 635.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8415-et',
@@ -193,6 +221,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8440-et',
@@ -202,6 +231,7 @@ const allBrandsData = [
                         maxPrice: 555.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8443-et',
@@ -211,6 +241,7 @@ const allBrandsData = [
                         maxPrice: 635.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8446-et',
@@ -220,6 +251,7 @@ const allBrandsData = [
                         maxPrice: 635.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8473-et',
@@ -229,6 +261,7 @@ const allBrandsData = [
                         maxPrice: 705.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8474-et',
@@ -238,6 +271,7 @@ const allBrandsData = [
                         maxPrice: 705.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -253,6 +287,7 @@ const allBrandsData = [
                         maxPrice: 585.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8410',
@@ -262,6 +297,7 @@ const allBrandsData = [
                         maxPrice: 565.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8410-et-pull',
@@ -271,6 +307,7 @@ const allBrandsData = [
                         maxPrice: 565.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8413-et',
@@ -280,6 +317,7 @@ const allBrandsData = [
                         maxPrice: 645.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8415-et',
@@ -289,6 +327,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8440-et',
@@ -298,6 +337,7 @@ const allBrandsData = [
                         maxPrice: 565.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8443-et',
@@ -307,6 +347,7 @@ const allBrandsData = [
                         maxPrice: 645.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8446-et',
@@ -316,6 +357,7 @@ const allBrandsData = [
                         maxPrice: 645.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8473-et',
@@ -325,6 +367,7 @@ const allBrandsData = [
                         maxPrice: 715.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8474-et',
@@ -334,6 +377,7 @@ const allBrandsData = [
                         maxPrice: 715.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -349,6 +393,9 @@ const allBrandsData = [
                         maxPrice: 505.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [
+                            { prefix: 'RM', addOnPrice: 30.00 },
+                        ],
                       },
                       {
                         id: 'sargent-8504-pull',
@@ -358,6 +405,7 @@ const allBrandsData = [
                         maxPrice: 505.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8506-et',
@@ -367,6 +415,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8510',
@@ -376,6 +425,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8510-pull',
@@ -385,6 +435,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8510-et-pull',
@@ -394,6 +445,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8513-et',
@@ -403,6 +455,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8515-et',
@@ -412,6 +465,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8540-et',
@@ -421,6 +475,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8543-et',
@@ -430,6 +485,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8544-et',
@@ -439,6 +495,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8546-et',
@@ -448,6 +505,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8573-et',
@@ -457,6 +515,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8574-et',
@@ -466,6 +525,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -481,6 +541,7 @@ const allBrandsData = [
                         maxPrice: 515.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8504-pull',
@@ -490,6 +551,7 @@ const allBrandsData = [
                         maxPrice: 515.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8506-et',
@@ -499,6 +561,7 @@ const allBrandsData = [
                         maxPrice: 585.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8510',
@@ -508,6 +571,7 @@ const allBrandsData = [
                         maxPrice: 485.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8510-pull',
@@ -517,6 +581,7 @@ const allBrandsData = [
                         maxPrice: 485.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8510-et-pull',
@@ -526,6 +591,7 @@ const allBrandsData = [
                         maxPrice: 485.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8513-et',
@@ -535,6 +601,7 @@ const allBrandsData = [
                         maxPrice: 585.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8515-et',
@@ -544,6 +611,7 @@ const allBrandsData = [
                         maxPrice: 485.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8540-et',
@@ -553,6 +621,7 @@ const allBrandsData = [
                         maxPrice: 485.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8543-et',
@@ -562,6 +631,7 @@ const allBrandsData = [
                         maxPrice: 585.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8544-et',
@@ -571,6 +641,7 @@ const allBrandsData = [
                         maxPrice: 615.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8546-et',
@@ -580,6 +651,7 @@ const allBrandsData = [
                         maxPrice: 615.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8573-et',
@@ -589,6 +661,7 @@ const allBrandsData = [
                         maxPrice: 685.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8574-et',
@@ -598,6 +671,7 @@ const allBrandsData = [
                         maxPrice: 685.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -613,6 +687,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8610',
@@ -622,6 +697,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8610-et-pull',
@@ -631,6 +707,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8613-et',
@@ -640,6 +717,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8615-et',
@@ -649,6 +727,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8640-et',
@@ -658,6 +737,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8643-et',
@@ -667,6 +747,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8646-et',
@@ -676,6 +757,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8673-et',
@@ -685,6 +767,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-md8674-et',
@@ -694,66 +777,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // NB-MD8600 Series (functions generally match MD8600)
-                  {
-                    modelNumber: 'NB-MD8600 Concealed Vertical Rod Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-nbmd8606-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 535.00,
-                        maxPrice: 585.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbmd8610',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation (No Cylinder).`,
-                        minPrice: 485.00,
-                        maxPrice: 535.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbmd8613-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/locks Trim.`,
-                        minPrice: 565.00,
-                        maxPrice: 615.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbmd8615-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 485.00,
-                        maxPrice: 535.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbmd8673-et',
-                        functionName: 'Electrified ET Trim Fail Safe (ANSI 73)',
-                        description: `Electrified ET Trim - Fail Safe. Power Off, Unlocks Lever (No Cylinder).`,
-                        minPrice: 635.00,
-                        maxPrice: 685.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbmd8674-et',
-                        functionName: 'Electrified ET Trim Fail Secure (ANSI 74)',
-                        description: `Electrified ET Trim - Fail Secure. Power Off, Locks Lever (No Cylinder).`,
-                        minPrice: 635.00,
-                        maxPrice: 685.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -769,6 +793,7 @@ const allBrandsData = [
                         maxPrice: 585.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8610',
@@ -778,6 +803,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8610-et-pull',
@@ -787,6 +813,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8613-et',
@@ -796,6 +823,7 @@ const allBrandsData = [
                         maxPrice: 615.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8615-et',
@@ -805,6 +833,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8640-et',
@@ -814,6 +843,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8643-et',
@@ -823,6 +853,7 @@ const allBrandsData = [
                         maxPrice: 615.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8646-et',
@@ -832,6 +863,7 @@ const allBrandsData = [
                         maxPrice: 615.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8673-et',
@@ -841,6 +873,7 @@ const allBrandsData = [
                         maxPrice: 715.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ad8674-et',
@@ -850,66 +883,7 @@ const allBrandsData = [
                         maxPrice: 715.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // NB-AD8600 Series (functions generally match AD8600)
-                  {
-                    modelNumber: 'NB-AD8600 Concealed Vertical Rod Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-nbad8606-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 545.00,
-                        maxPrice: 595.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbad8610',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation (No Cylinder).`,
-                        minPrice: 495.00,
-                        maxPrice: 545.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbad8613-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/locks Trim.`,
-                        minPrice: 575.00,
-                        maxPrice: 625.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbad8615-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 495.00,
-                        maxPrice: 545.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbad8673-et',
-                        functionName: 'Electrified ET Trim Fail Safe (ANSI 73)',
-                        description: `Electrified ET Trim - Fail Safe. Power Off, Unlocks Lever (No Cylinder).`,
-                        minPrice: 675.00,
-                        maxPrice: 725.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbad8674-et',
-                        functionName: 'Electrified ET Trim Fail Secure (ANSI 74)',
-                        description: `Electrified ET Trim - Fail Secure. Power Off, Locks Lever (No Cylinder).`,
-                        minPrice: 675.00,
-                        maxPrice: 725.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -925,6 +899,7 @@ const allBrandsData = [
                         maxPrice: 595.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8610',
@@ -934,6 +909,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8610-et-pull',
@@ -943,6 +919,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8613-et',
@@ -952,6 +929,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8615-et',
@@ -961,6 +939,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8640-et',
@@ -970,6 +949,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8643-et',
@@ -979,6 +959,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8646-et',
@@ -988,6 +969,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8673-et',
@@ -997,6 +979,7 @@ const allBrandsData = [
                         maxPrice: 725.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-wd8674-et',
@@ -1006,66 +989,7 @@ const allBrandsData = [
                         maxPrice: 725.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // NB-WD8600 Series (functions generally match WD8600)
-                  {
-                    modelNumber: 'NB-WD8600 Concealed Vertical Rod Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-nbwd8606-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 555.00,
-                        maxPrice: 605.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbwd8610',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation (No Cylinder).`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbwd8613-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/locks Trim.`,
-                        minPrice: 585.00,
-                        maxPrice: 635.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbwd8615-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbwd8673-et',
-                        functionName: 'Electrified ET Trim Fail Safe (ANSI 73)',
-                        description: `Electrified ET Trim - Fail Safe. Power Off, Unlocks Lever (No Cylinder).`,
-                        minPrice: 685.00,
-                        maxPrice: 735.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nbwd8674-et',
-                        functionName: 'Electrified ET Trim Fail Secure (ANSI 74)',
-                        description: `Electrified ET Trim - Fail Secure. Power Off, Locks Lever (No Cylinder).`,
-                        minPrice: 685.00,
-                        maxPrice: 735.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -1081,6 +1005,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8610',
@@ -1090,6 +1015,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8610-et-pull',
@@ -1099,6 +1025,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8613-et',
@@ -1108,6 +1035,7 @@ const allBrandsData = [
                         maxPrice: 705.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8615-et',
@@ -1117,6 +1045,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8640-et',
@@ -1126,6 +1055,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8643-et',
@@ -1135,6 +1065,7 @@ const allBrandsData = [
                         maxPrice: 705.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8646-et',
@@ -1144,6 +1075,7 @@ const allBrandsData = [
                         maxPrice: 705.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8673-et',
@@ -1153,6 +1085,7 @@ const allBrandsData = [
                         maxPrice: 775.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-lp8674-et',
@@ -1162,6 +1095,7 @@ const allBrandsData = [
                         maxPrice: 775.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -1177,6 +1111,7 @@ const allBrandsData = [
                         maxPrice: 655.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8610',
@@ -1186,6 +1121,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8610-et-pull',
@@ -1195,6 +1131,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8613-et',
@@ -1204,6 +1141,7 @@ const allBrandsData = [
                         maxPrice: 685.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8615-et',
@@ -1213,6 +1151,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8640-et',
@@ -1222,6 +1161,7 @@ const allBrandsData = [
                         maxPrice: 605.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8643-et',
@@ -1231,6 +1171,7 @@ const allBrandsData = [
                         maxPrice: 685.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8646-et',
@@ -1240,6 +1181,7 @@ const allBrandsData = [
                         maxPrice: 685.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8673-et',
@@ -1249,6 +1191,7 @@ const allBrandsData = [
                         maxPrice: 755.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-ls8674-et',
@@ -1258,6 +1201,7 @@ const allBrandsData = [
                         maxPrice: 755.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -1273,6 +1217,7 @@ const allBrandsData = [
                         maxPrice: 555.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8710',
@@ -1282,6 +1227,9 @@ const allBrandsData = [
                         maxPrice: 455.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: ['vond-9875-dt', 'corbin-exit-ml2000-keyed'],
+                        prefixAddOns: [
+                            { prefix: 'EL', addOnPrice: 75.00 },
+                        ],
                       },
                       {
                         id: 'sargent-8710-et-pull',
@@ -1291,6 +1239,7 @@ const allBrandsData = [
                         maxPrice: 455.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8713-et',
@@ -1300,6 +1249,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: ['vond-9875-l'],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8715-et',
@@ -1309,6 +1259,7 @@ const allBrandsData = [
                         maxPrice: 455.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8740-et',
@@ -1318,6 +1269,7 @@ const allBrandsData = [
                         maxPrice: 455.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8743-et',
@@ -1327,6 +1279,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8746-et',
@@ -1336,6 +1289,7 @@ const allBrandsData = [
                         maxPrice: 535.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8773-et',
@@ -1345,6 +1299,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8774-et',
@@ -1354,276 +1309,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // NB8700 Series
-                  {
-                    modelNumber: 'NB8700 Less Bottom Rod SVR Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-nb8706-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim. Trim retracts latch. Trim relocks when key is removed.`,
-                        minPrice: 515.00,
-                        maxPrice: 565.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8710',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation (No Cylinder).`,
-                        minPrice: 415.00,
-                        maxPrice: 465.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8710-et-pull',
-                        functionName: 'Exit Only ET (ANSI 02)',
-                        description: `ET Control is used as Pull Only.`,
-                        minPrice: 415.00,
-                        maxPrice: 465.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8713-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/Locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8715-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 415.00,
-                        maxPrice: 465.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8740-et',
-                        functionName: 'Freewheeling Dummy Trim ET (ANSI 02)',
-                        description: `Freewheeling Trim - No outside operation (No Cylinder) Dummy Trim.`,
-                        minPrice: 415.00,
-                        maxPrice: 465.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8743-et',
-                        functionName: 'Freewheeling Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Freewheeling Trim - Key Outside Unlocks/locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8746-et',
-                        functionName: 'Freewheeling Key Unlocks Trim ET (ANSI 09)',
-                        description: `Freewheeling Trim - Key unlocks Trim, Trim retracts latch/relocks when key is removed.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8773-et',
-                        functionName: 'Electrified ET Trim Fail Safe (ANSI 73)',
-                        description: `Electrified ET Trim Fail Safe. Power Off, Unlocks Lever (No Cylinder).`,
-                        minPrice: 595.00,
-                        maxPrice: 645.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-nb8774-et',
-                        functionName: 'Electrified ET Trim Fail Secure (ANSI 74)',
-                        description: `Electrified ET Trim Fail Secure. Power Off, Locks Lever (No Cylinder).`,
-                        minPrice: 595.00,
-                        maxPrice: 645.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // FM8700 Series
-                  {
-                    modelNumber: 'FM8700 Surface Vertical Rod Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-fm8706-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 535.00,
-                        maxPrice: 585.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-fm8710',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation (No Cylinder).`,
-                        minPrice: 435.00,
-                        maxPrice: 485.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-fm8710-et-pull',
-                        functionName: 'Exit Only ET (ANSI 02)',
-                        description: `ET Control is used as Pull Only.`,
-                        minPrice: 435.00,
-                        maxPrice: 485.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-fm8713-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/locks Trim.`,
-                        minPrice: 515.00,
-                        maxPrice: 565.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-fm8740-et',
-                        functionName: 'Freewheeling Dummy Trim ET (ANSI 02)',
-                        description: `Freewheeling Trim - No outside operation (No Cylinder) Dummy Trim.`,
-                        minPrice: 435.00,
-                        maxPrice: 485.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-fm8743-et',
-                        functionName: 'Freewheeling Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Freewheeling Trim - Key Outside Unlocks/locks Trim.`,
-                        minPrice: 515.00,
-                        maxPrice: 565.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-fm8746-et',
-                        functionName: 'Freewheeling Key Unlocks Trim ET (ANSI 09)',
-                        description: `Freewheeling Trim - Key unlocks Trim, Trim retracts latch/ relocks when key is removed.`,
-                        minPrice: 515.00,
-                        maxPrice: 565.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-fm8774-et',
-                        functionName: 'Electrified ET Trim Fail Secure (ANSI 74)',
-                        description: `Electrified ET Trim - Fail Secure. Power Off, Locks Lever (No Cylinder).`,
-                        minPrice: 605.00,
-                        maxPrice: 655.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // HC8700 Series
-                  {
-                    modelNumber: 'HC8700 Surface Vertical Rod Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-hc8706-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 525.00,
-                        maxPrice: 575.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8710',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation (No Cylinder).`,
-                        minPrice: 425.00,
-                        maxPrice: 475.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8710-et-pull',
-                        functionName: 'Exit Only ET (ANSI 02)',
-                        description: `ET Control is used as Pull Only.`,
-                        minPrice: 425.00,
-                        maxPrice: 475.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8713-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8715-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 425.00,
-                        maxPrice: 475.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8740-et',
-                        functionName: 'Freewheeling Dummy Trim ET (ANSI 02)',
-                        description: `Freewheeling Trim - No outside operation (No Cylinder) Dummy Trim.`,
-                        minPrice: 425.00,
-                        maxPrice: 475.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8743-et',
-                        functionName: 'Freewheeling Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Freewheeling Trim - Key Outside Unlocks/locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8746-et',
-                        functionName: 'Freewheeling Key Unlocks Trim ET (ANSI 09)',
-                        description: `Freewheeling Trim - Key unlocks Trim, Trim retracts latch/ relocks when key is removed.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8773-et',
-                        functionName: 'Electrified ET Trim Fail Safe (ANSI 73)',
-                        description: `Electrified ET Trim - Fail Safe. Power Off, Unlocks Lever (No Cylinder).`,
-                        minPrice: 595.00,
-                        maxPrice: 645.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8774-et',
-                        functionName: 'Electrified ET Trim Fail Secure (ANSI 74)',
-                        description: `Electrified ET Trim - Fail Secure. Power Off, Locks Lever (No Cylinder).`,
-                        minPrice: 595.00,
-                        maxPrice: 645.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -1639,6 +1325,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8806-et',
@@ -1648,6 +1335,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8810',
@@ -1657,6 +1345,7 @@ const allBrandsData = [
                         maxPrice: 425.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8810-et-pull',
@@ -1666,6 +1355,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: ['best-3000-dt', 'vond-9800-dt'],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8813-et',
@@ -1675,6 +1365,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8815-et',
@@ -1684,6 +1375,7 @@ const allBrandsData = [
                         maxPrice: 425.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8840-et',
@@ -1693,6 +1385,7 @@ const allBrandsData = [
                         maxPrice: 475.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: ['best-3000-dt', 'vond-9800-dt'],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8843-et',
@@ -1702,6 +1395,7 @@ const allBrandsData = [
                         maxPrice: 525.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8844-et',
@@ -1711,6 +1405,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8846-et',
@@ -1720,6 +1415,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8873-et',
@@ -1729,6 +1425,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8874-et',
@@ -1738,6 +1435,7 @@ const allBrandsData = [
                         maxPrice: 625.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8875-et',
@@ -1747,6 +1445,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8876-et',
@@ -1756,234 +1455,7 @@ const allBrandsData = [
                         maxPrice: 675.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // HC8800 Series
-                  {
-                    modelNumber: 'HC8800 Rim Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-hc8804-et',
-                        functionName: 'Night Latch ET (ANSI 03)',
-                        description: `Key Retracts Latch.`,
-                        minPrice: 445.00,
-                        maxPrice: 495.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8806-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 515.00,
-                        maxPrice: 565.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8810',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation.`,
-                        minPrice: 395.00,
-                        maxPrice: 445.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8810-et-pull',
-                        functionName: 'Exit Only ET (ANSI 02)',
-                        description: `ET Control is used as Pull Only.`,
-                        minPrice: 445.00,
-                        maxPrice: 495.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8813-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/Locks Trim.`,
-                        minPrice: 495.00,
-                        maxPrice: 545.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8815-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 395.00,
-                        maxPrice: 445.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8840-et',
-                        functionName: 'Freewheeling Dummy Trim ET (ANSI 02)',
-                        description: `Freewheeling Trim - No outside operation (No Cylinder) Dummy Trim.`,
-                        minPrice: 445.00,
-                        maxPrice: 495.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8843-et',
-                        functionName: 'Freewheeling Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Freewheeling Trim - Key Outside Unlocks/locks Trim.`,
-                        minPrice: 495.00,
-                        maxPrice: 545.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8844-et',
-                        functionName: 'Freewheeling Night Latch ET (ANSI 03)',
-                        description: `Freewheeling Trim - Key Retracts Latch.`,
-                        minPrice: 545.00,
-                        maxPrice: 595.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8846-et',
-                        functionName: 'Freewheeling Key Unlocks Trim ET (ANSI 09)',
-                        description: `Freewheeling Trim - Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 545.00,
-                        maxPrice: 595.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8875-et',
-                        functionName: 'Electrified ET Trim Fail Safe w/Cyl (ANSI 75)',
-                        description: `Electrified ET Trim - Fail Safe. Power Off, Unlocks Lever, Key Retracts Latch.`,
-                        minPrice: 645.00,
-                        maxPrice: 695.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-hc8876-et',
-                        functionName: 'Electrified ET Trim Fail Secure w/Cyl (ANSI 76)',
-                        description: `Electrified ET Trim Fail Secure. Power Off, Locks Lever, Key Retracts Latch.`,
-                        minPrice: 645.00,
-                        maxPrice: 695.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                    ],
-                  },
-                  // WS8800 Series
-                  {
-                    modelNumber: 'WS8800 Rim Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-ws8804-et',
-                        functionName: 'Night Latch ET (ANSI 03)',
-                        description: `Key Retracts Latch.`,
-                        minPrice: 455.00,
-                        maxPrice: 505.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8806-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 525.00,
-                        maxPrice: 575.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8810',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation.`,
-                        minPrice: 405.00,
-                        maxPrice: 455.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8810-et-pull',
-                        functionName: 'Exit Only ET (ANSI 02)',
-                        description: `ET Control is used as Pull Only.`,
-                        minPrice: 455.00,
-                        maxPrice: 505.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8813-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/Locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8815-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 405.00,
-                        maxPrice: 455.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8840-et',
-                        functionName: 'Freewheeling Dummy Trim ET (ANSI 02)',
-                        description: `Freewheeling Trim - No outside operation (No Cylinder) Dummy Trim.`,
-                        minPrice: 455.00,
-                        maxPrice: 505.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8843-et',
-                        functionName: 'Freewheeling Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Freewheeling Trim - Key Outside Unlocks/locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8844-et',
-                        functionName: 'Freewheeling Night Latch ET (ANSI 03)',
-                        description: `Freewheeling Trim - Key Retracts Latch.`,
-                        minPrice: 555.00,
-                        maxPrice: 605.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8846-et',
-                        functionName: 'Freewheeling Key Unlocks Trim ET (ANSI 09)',
-                        description: `Freewheeling Trim - Key unlocks Trim, Trim retracts latch/ Trim relocks when key is removed.`,
-                        minPrice: 555.00,
-                        maxPrice: 605.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8875-et',
-                        functionName: 'Electrified ET Trim Fail Safe w/Cyl (ANSI 75)',
-                        description: `Electrified ET Trim - Fail Safe. Power Off, Unlocks Lever, Key Retracts Latch.`,
-                        minPrice: 655.00,
-                        maxPrice: 705.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8876-et',
-                        functionName: 'Electrified ET Trim Fail Secure w/Cyl (ANSI 76)',
-                        description: `Electrified ET Trim Fail Secure. Power Off, Locks Lever, Key Retracts Latch.`,
-                        minPrice: 655.00,
-                        maxPrice: 705.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -1999,6 +1471,7 @@ const allBrandsData = [
                         maxPrice: 505.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8906-et',
@@ -2008,6 +1481,7 @@ const allBrandsData = [
                         maxPrice: 575.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8910',
@@ -2017,6 +1491,7 @@ const allBrandsData = [
                         maxPrice: 445.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8910-et-pull',
@@ -2026,6 +1501,7 @@ const allBrandsData = [
                         maxPrice: 505.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8913-et',
@@ -2035,6 +1511,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8915-et',
@@ -2044,6 +1521,7 @@ const allBrandsData = [
                         maxPrice: 445.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8916-et',
@@ -2053,6 +1531,7 @@ const allBrandsData = [
                         maxPrice: 595.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8940-et',
@@ -2062,6 +1541,7 @@ const allBrandsData = [
                         maxPrice: 505.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8943-et',
@@ -2071,6 +1551,7 @@ const allBrandsData = [
                         maxPrice: 545.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8944-et',
@@ -2080,6 +1561,7 @@ const allBrandsData = [
                         maxPrice: 595.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8975-et',
@@ -2089,6 +1571,7 @@ const allBrandsData = [
                         maxPrice: 695.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'sargent-8976-et',
@@ -2098,142 +1581,30 @@ const allBrandsData = [
                         maxPrice: 695.00,
                         imageUrl: Images.SargentLogo,
                         equivalentProductIds: [],
+                        prefixAddOns: [],
                       },
                     ],
                   },
-                  // WS8900 Series
-                  {
-                    modelNumber: 'WS8900 Mortise Lock Exit Device',
-                    functions: [
-                      {
-                        id: 'sargent-ws8904-et',
-                        functionName: 'Night Latch ET (ANSI 03)',
-                        description: `Key Retracts Latch.`,
-                        minPrice: 465.00,
-                        maxPrice: 515.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8906-et',
-                        functionName: 'Key Unlocks Trim ET (ANSI 06)',
-                        description: `Key unlocks Trim, Trim retracts Latch/ Trim relocks when key is removed.`,
-                        minPrice: 535.00,
-                        maxPrice: 585.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8910',
-                        functionName: 'Exit Only (ANSI 01)',
-                        description: `No outside operation.`,
-                        minPrice: 405.00,
-                        maxPrice: 455.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8910-et-pull',
-                        functionName: 'Exit Only ET (ANSI 02)',
-                        description: `ET Control is used as Pull Only.`,
-                        minPrice: 465.00,
-                        maxPrice: 515.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8913-et',
-                        functionName: 'Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Key Outside Unlocks/Locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8915-et',
-                        functionName: 'Passage Only ET (ANSI 14)',
-                        description: `Passage Only (No cylinder).`,
-                        minPrice: 405.00,
-                        maxPrice: 455.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8916-et',
-                        functionName: 'Key Outside Retracts Latch w/I/S Cyl ET (ANSI 10)',
-                        description: `Key Outside Retracts Latch, Key Inside Unlocks/Locks O/S Trim.`,
-                        minPrice: 555.00,
-                        maxPrice: 605.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8940-et',
-                        functionName: 'Freewheeling Dummy Trim ET (ANSI 02)',
-                        description: `Freewheeling Trim - No outside operation (No Cylinder) Dummy Trim.`,
-                        minPrice: 465.00,
-                        maxPrice: 515.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8943-et',
-                        functionName: 'Freewheeling Key Outside Unlocks/Locks Trim ET (ANSI 08)',
-                        description: `Freewheeling Trim - Key Outside Unlocks/locks Trim.`,
-                        minPrice: 505.00,
-                        maxPrice: 555.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8944-et',
-                        functionName: 'Freewheeling Night Latch ET (ANSI 03)',
-                        description: `Freewheeling Trim - Key Retracts Latch.`,
-                        minPrice: 555.00,
-                        maxPrice: 605.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8975-et',
-                        functionName: 'Electrified ET Trim Fail Safe w/Cyl (ANSI 75)',
-                        description: `Electrified ET Trim - Fail Safe. Power Off, Unlocks Lever, Key Retracts Latch.`,
-                        minPrice: 655.00,
-                        maxPrice: 705.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                      {
-                        id: 'sargent-ws8976-et',
-                        functionName: 'Electrified ET Trim Fail Secure w/Cyl (ANSI 76)',
-                        description: `Electrified ET Trim Fail Secure. Power Off, Locks Lever, Key Retracts Latch.`,
-                        minPrice: 655.00,
-                        maxPrice: 705.00,
-                        imageUrl: Images.SargentLogo,
-                        equivalentProductIds: [],
-                      },
-                    ],
-                  },
+
                 ],
               },
             ],
           },
           {
-            name: 'Exit Device Trims', // NEW: Empty for now
-            series: [],
+            name: 'Exit Device Trims',
+            series: [], // Corrected: changed from subCategories: [] to series: []
           },
           {
-            name: 'Mullions', // NEW: Empty for now
-            series: [],
+            name: 'Mullions',
+            series: [], // Corrected: changed from subCategories: [] to series: []
           },
         ],
       },
       {
         name: 'Mortise Locks',
-        subCategories: [ // NEW: Sub-categories for Mortise Locks
+        subCategories: [
           {
-            name: 'Mortise Locks', // Existing data goes here
+            name: 'Mortise Locks',
             series: [
               {
                 seriesName: '8200 Series',
@@ -2249,6 +1620,9 @@ const allBrandsData = [
                         maxPrice: 305.00,
                         imageUrl: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=Sargent+8200F01',
                         equivalentProductIds: ['corbin-ml2000-f01', 'accentra-ad-f01'],
+                        prefixAddOns: [
+                            { prefix: 'EL', addOnPrice: 40.00 },
+                        ],
                       },
                     ],
                   },
@@ -2257,21 +1631,104 @@ const allBrandsData = [
             ],
           },
           {
-            name: 'Mortise Trims', // NEW: Empty for now
+            name: 'Mortise Trims',
+            series: [],
+          },
+        ],
+      },
+           {
+        name: 'Cylindrical Locks',
+        subCategories: [
+          {
+            name: 'Mortise Locks',
+            series: [
+              {
+                seriesName: '8200 Series',
+                models: [
+                  {
+                    modelNumber: '8200',
+                    functions: [
+                      {
+                        id: 'sargent-8200-f01',
+                        functionName: 'F01 (Passage)',
+                        description: `Sargent 8200 F01 Passage.<br/>Both levers always free.`,
+                        minPrice: 255.00,
+                        maxPrice: 305.00,
+                        imageUrl: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=Sargent+8200F01',
+                        equivalentProductIds: ['corbin-ml2000-f01', 'accentra-ad-f01'],
+                        prefixAddOns: [
+                            { prefix: 'EL', addOnPrice: 40.00 },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            name: 'Mortise Trims',
             series: [],
           },
         ],
       },
     ],
+    availablePrefixes: [
+      {
+        name: 'ET',
+        description: 'Electrified Trim: Provides electronic control over the trim, allowing for remote locking/unlocking.',
+        models: [
+          '8300 Mortise Exit Device',
+          'MD8400 Narrow Stile CVR Exit Device',
+          'AD8400 Narrow Stile CVR Exit Device',
+          '8500 Narrow Design Rim Exit Device',
+          'AD8500 Narrow Design Rim Exit Device',
+          'MD8600 Concealed Vertical Rod Exit Device',
+          'AD8600 Concealed Vertical Rod Exit Device',
+          'WD8600 Concealed Vertical Rod Exit Device',
+          'LP8600/LR8600 Center & Top Latch CVR (Pair of Doors)',
+          'LS8600 Center & Top Latch CVR (Single Door)',
+          '8700 SVR Exit Device',
+          '8800 Rim Exit Device',
+          '8900 Mortise Lock Exit Device',
+        ]
+      },
+      {
+        name: 'EL',
+        description: 'Electrified Latch: Electrically controlled latch bolt for enhanced security and access control.',
+        models: [
+          '8300 Mortise Exit Device',
+          '8700 SVR Exit Device',
+          '8200', // Mortise Lock
+        ]
+      },
+      {
+        name: 'HW',
+        description: 'Heavy Weight: Designed for applications requiring increased durability and strength.',
+        models: [
+          '8300 Mortise Exit Device',
+        ]
+      },
+      {
+        name: 'RM',
+        description: 'Rim Mount: Indicates the device is surface-mounted on the door face.',
+        models: [
+          '8300 Mortise Exit Device',
+          'MD8400 Narrow Stile CVR Exit Device',
+          '8500 Narrow Design Rim Exit Device',
+          '8800 Rim Exit Device',
+        ]
+      },
+    ]
   },
   {
     brand: 'Von Duprin',
     categories: [
       {
         name: 'Exit Devices',
-        subCategories: [ // NEW: Sub-categories for Exit Devices
+        subCategories: [
           {
-            name: 'Full Exit Devices', // Existing data goes here
+            name: 'Full Exit Devices',
             series: [
               {
                 seriesName: '98 Series',
@@ -2287,6 +1744,9 @@ const allBrandsData = [
                         maxPrice: 3243.00,
                         imageUrl: Images.VD9875,
                         equivalentProductIds: ['sargent-8304', 'best-3000-dt'],
+                        prefixAddOns: [
+                            { prefix: 'AL', addOnPrice: 60.00 },
+                        ],
                       },
                       {
                         id: 'vond-9800-l',
@@ -2296,11 +1756,12 @@ const allBrandsData = [
                         maxPrice: 455.00,
                         imageUrl: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=VonDuprin+9800L',
                         equivalentProductIds: ['sargent-8300-l', 'best-3000-l'],
+                        prefixAddOns: [],
                       },
                     ],
                   },
                   {
-                    modelNumber: '9875', // Specific model for 98 series
+                    modelNumber: '9875',
                     functions: [
                       {
                         id: 'vond-9875-dt',
@@ -2310,6 +1771,7 @@ const allBrandsData = [
                         maxPrice: 505.00,
                         imageUrl: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=VonDuprin+9875DT',
                         equivalentProductIds: ['sargent-8700-10'],
+                        prefixAddOns: [],
                       },
                       {
                         id: 'vond-9875-l',
@@ -2319,6 +1781,7 @@ const allBrandsData = [
                         maxPrice: 435.00,
                         imageUrl: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=VonDuprin+9875L',
                         equivalentProductIds: ['sargent-8700-13'],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -2327,21 +1790,30 @@ const allBrandsData = [
             ],
           },
           {
-            name: 'Exit Device Trims', // NEW: Empty for now
+            name: 'Exit Device Trims',
             series: [],
           },
         ],
       },
     ],
+    availablePrefixes: [
+      {
+        name: 'AL',
+        description: 'Alarmed: Includes an internal alarm to deter unauthorized exits.',
+        models: [
+          '9875/9975 Mortise Exit Device',
+        ]
+      },
+    ]
   },
   {
     brand: 'Best',
     categories: [
       {
         name: 'Exit Devices',
-        subCategories: [ // NEW: Sub-categories for Exit Devices
+        subCategories: [
           {
-            name: 'Full Exit Devices', // Existing data goes here
+            name: 'Full Exit Devices',
             series: [
               {
                 seriesName: '3000 Series',
@@ -2357,6 +1829,9 @@ const allBrandsData = [
                         maxPrice: 395.00,
                         imageUrl: 'https://via.placeholder.com/150/00FF00/FFFFFF?text=Best+3000DT',
                         equivalentProductIds: ['sargent-8300-dt', 'vond-9800-dt'],
+                        prefixAddOns: [
+                            { prefix: 'FC', addOnPrice: 45.00 },
+                        ],
                       },
                       {
                         id: 'best-3000-l',
@@ -2366,6 +1841,7 @@ const allBrandsData = [
                         maxPrice: 445.00,
                         imageUrl: 'https://via.placeholder.com/150/00FF00/FFFFFF?text=Best+3000L',
                         equivalentProductIds: ['sargent-8300-l', 'vond-9800-l'],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -2376,15 +1852,24 @@ const allBrandsData = [
         ],
       },
     ],
+    availablePrefixes: [
+      {
+        name: 'FC',
+        description: 'Fire Core: Designed for use on fire-rated doors.',
+        models: [
+          '3000',
+        ]
+      },
+    ]
   },
   {
     brand: 'Corbin',
     categories: [
       {
         name: 'Mortise Locks',
-        subCategories: [ // NEW: Sub-categories for Mortise Locks
+        subCategories: [
           {
-            name: 'Mortise Locks', // Existing data goes here
+            name: 'Mortise Locks',
             series: [
               {
                 seriesName: 'ML2000 Series',
@@ -2400,15 +1885,19 @@ const allBrandsData = [
                         maxPrice: 315.00,
                         imageUrl: 'https://via.placeholder.com/150/FFFF00/000000?text=Corbin+ML2000F01',
                         equivalentProductIds: ['sargent-8200-f01', 'accentra-ad-f01'],
+                        prefixAddOns: [
+                            { prefix: 'DA', addOnPrice: 35.00 },
+                        ],
                       },
                       {
-                        id: 'corbin-exit-ml2000-keyed', // Example of a potentially different naming convention
+                        id: 'corbin-exit-ml2000-keyed',
                         functionName: 'Keyed (Exit Trim)',
                         description: `Corbin ML2000 Keyed Exit Trim.<br/>Similar function to Sargent 8710.`,
                         minPrice: 435.00,
                         maxPrice: 485.00,
                         imageUrl: 'https://via.placeholder.com/150/FFFF00/000000?text=Corbin+ML2000+Exit',
                         equivalentProductIds: ['sargent-8700-10'],
+                        prefixAddOns: [],
                       },
                     ],
                   },
@@ -2417,27 +1906,36 @@ const allBrandsData = [
             ],
           },
           {
-            name: 'Mortise Trims', // NEW: Empty for now
+            name: 'Mortise Trims',
             series: [],
           },
         ],
       },
     ],
+    availablePrefixes: [
+      {
+        name: 'DA',
+        description: 'Durable Arm: Enhanced arm for heavy-duty use.',
+        models: [
+          'ML2000',
+        ]
+      },
+    ]
   },
   {
     brand: 'Accentra',
     categories: [
       {
         name: 'Mortise Locks',
-        subCategories: [ // NEW: Sub-categories for Mortise Locks
+        subCategories: [
           {
-            name: 'Mortise Locks', // Existing data goes here
+            name: 'Mortise Locks',
             series: [
               {
                 seriesName: 'AD-Series',
                 models: [
                   {
-                    modelNumber: 'AD-99', // Example model for AD-Series
+                    modelNumber: 'AD-99',
                     functions: [
                       {
                         id: 'accentra-ad-f01',
@@ -2447,6 +1945,9 @@ const allBrandsData = [
                         maxPrice: 345.00,
                         imageUrl: 'https://via.placeholder.com/150/00FFFF/000000?text=Accentra+AD-F01',
                         equivalentProductIds: ['sargent-8200-f01', 'corbin-ml2000-f01'],
+                        prefixAddOns: [
+                            { prefix: 'BT', addOnPrice: 55.00 },
+                        ],
                       },
                     ],
                   },
@@ -2457,6 +1958,15 @@ const allBrandsData = [
         ],
       },
     ],
+    availablePrefixes: [
+      {
+        name: 'BT',
+        description: 'Bluetooth Enabled: Allows for mobile device access and management.',
+        models: [
+          'AD-99',
+        ]
+      },
+    ]
   },
 ];
 
