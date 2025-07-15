@@ -51,25 +51,8 @@ h1 {
   height: auto;
   margin: 5px;
   transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Added border-color transition */
-    border: 2px solid #666; /* Base dashed border */
-    border-radius: 25px;
-    background-clip: padding-box; /* Ensures background doesn't draw over border */
-    position: relative; /* Needed for pseudo-elements */
-    overflow: hidden; /* Important for containing the gradient animation */
-}
-
-.Logo::before {
-    content: '';
-    position: absolute;
-    inset: -100%; /* Cover the entire area */
-    background: linear-gradient(45deg, #007bff, #8a2be2, #ffaa5c); /* Gradient colors */
-    transform: translateX(-100%); /* Start off-screen */
-    transition: transform 0.5s ease-out; /* Animation */
-    z-index: -1; /* Keep behind content */
-}
-
-.Logo:hover::before {
-    transform: translateX(0); /* Slide in the gradient */
+  border-radius: 25px; /* Same border radius as before */
+  border: 2px dashed #666; /* Darker dashed border */
 }
 
 .Logo:hover {
@@ -353,6 +336,8 @@ select:focus {
   text-align: left;
   animation: slideIn 0.3s ease-out forwards;
   color: #e0e0e0; /* Lighter text */
+  max-height: 90vh; /* Set a max height for the modal content */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .modal-close-button {
@@ -390,28 +375,56 @@ select:focus {
 .prefix-item {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #444; /* Darker separator */
+  padding: 12px;
   font-size: 1.1em;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 25PX;
 }
 
 .prefix-item:last-child {
-  border-bottom: none;
 }
 
 .prefix-name {
   font-weight: bold;
+  padding: 12px;
   color: #e0e0e0; /* Lighter text */
 }
 
 .prefix-price-addon {
   color: #28a745; /* Green for positive add-ons */
+  padding: 12px;
   font-weight: 600;
+  text-align: center;
 }
 
 .prefix-price-addon.negative {
   color: #dc3545; /* Red for negative add-ons */
+    padding: 12px;
+  font-weight: 600;
+  text-align: center;
 }
+
+/* NEW: Multi-column layout for prefix list */
+.prefix-list.multi-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 10px 30px; /* Row gap, Column gap */
+}
+
+.prefix-list.multi-column .prefix-item {
+  display: flex;
+  text-align: center;
+  flex-direction: column; /* Stack name and price within each item */
+  padding: 8px 0; /* Adjust padding for grid items */
+}
+
+/* Add a border between columns for better visual separation if desired */
+.prefix-list.multi-column {
+    /* For a vertical line between columns (conceptual): */
+    /* border-right: 1px solid #555; /* On the container if you want a divider */
+}
+
 
 .show-prefixes-button {
   background-color: #007bff;
