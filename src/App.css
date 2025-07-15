@@ -4,69 +4,90 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #282c34; /* Darker background for semi-dark mode */
-  color: #1a1a1a; /* Lighter text color for readability */
+  background-color: #1a1a1a; /* Dark background for dark mode */
+  color: #e0e0e0; /* Light text color for readability */
+  transition: background-color 0.5s ease; /* Smooth transition for dark mode */
 }
 
 .App {
-  padding: 0; /* Remove top/bottom padding from App to allow full-width header */
+  padding: 0;
   text-align: center;
-  max-width: 100%; /* Changed to take up max width */
-  margin: 0 auto; /* Center the entire application container */
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.navbar-header { /* New Style for the White Navbar */
-  background-color: #ffffff; /* White background for the navbar area */
-  padding: 20px 30px; /* Consistent padding */
-  border-bottom: 1px solid #e0e0e0; /* Subtle separator */
-  margin-bottom: 40px; /* Space below the header */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Light shadow */
+.navbar-header {
+  background-color: #2c2c2c; /* Darker background for navbar */
+  padding: 20px 30px;
+  border-bottom: 1px solid #3a3a3a; /* Subtle dark border */
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Darker shadow */
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center logos and title */
+  justify-content: center;
   align-items: center;
-  gap: 15px; /* Gap between logos */
-  flex-direction: row; /* Default to row for logos */
+  gap: 15px;
+  flex-direction: row;
 }
 
 .navbar-header h1 {
-  width: 100%; /* Make H1 take full width to center below logos */
-  color: #000000; /* Keep heading black on white background */
-  margin-top: 15px; /* Space above H1 */
+  width: 100%;
+  color: #f0f0f0; /* Lighter heading color */
+  margin-top: 15px;
   margin-bottom: 0;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
-h1 { /* General H1 style, mainly for the main title within navbar-header */
-  color: #000000; /* Muted blue for headings */
+h1 {
+  color: #f0f0f0; /* Lighter heading color for general H1 */
   margin-bottom: 40px;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
 .Logo {
-  width: 100px; /* Slightly smaller logos */
+  width: 400px;
   height: auto;
-  margin: 5px; /* Reduced margin */
-  transition: transform 0.2s ease-in-out;
+  margin: 5px;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Added border-color transition */
+    border: 2px solid #666; /* Base dashed border */
+    border-radius: 25px;
+    background-clip: padding-box; /* Ensures background doesn't draw over border */
+    position: relative; /* Needed for pseudo-elements */
+    overflow: hidden; /* Important for containing the gradient animation */
+}
+
+.Logo::before {
+    content: '';
+    position: absolute;
+    inset: -100%; /* Cover the entire area */
+    background: linear-gradient(45deg, #007bff, #8a2be2, #ffaa5c); /* Gradient colors */
+    transform: translateX(-100%); /* Start off-screen */
+    transition: transform 0.5s ease-out; /* Animation */
+    z-index: -1; /* Keep behind content */
+}
+
+.Logo:hover::before {
+    transform: translateX(0); /* Slide in the gradient */
 }
 
 .Logo:hover {
-  transform: scale(1.08); /* Slightly more pronounced hover effect */
+  transform: scale(1.08);
+  border-color: #007bff; /* Blue glow on hover */
 }
 
 /* Category Tabs Styling */
 .category-tabs-container {
-  background-color: #f8f8f8; /* Light background for the tab area */
+  background-color: #252525; /* Darker background for tab area */
   padding: 25px 30px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #3a3a3a;
   margin-bottom: 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Darker shadow */
 }
 
 .category-tabs-container h2 {
-  color: #1a1a1a;
+  color: #f0f0f0; /* Lighter text */
   margin-top: 0;
   margin-bottom: 20px;
   font-weight: 600;
@@ -81,61 +102,61 @@ h1 { /* General H1 style, mainly for the main title within navbar-header */
 
 .category-tab {
   padding: 12px 25px;
-  border: 2px solid #a8b8c5; /* Muted blue border */
-  border-radius: 25px; /* Pill shape */
-  background-color: #ffffff;
-  color: #4a6a8a; /* Darker text */
+  border: 2px solid #555; /* Muted dark border */
+  border-radius: 25px;
+  background-color: #333; /* Darker background for tabs */
+  color: #b0b0b0; /* Lighter text */
   font-size: 1.1em;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .category-tab:hover {
-  background-color: #e9f0f6; /* Lighter blue on hover */
-  border-color: #7fa1be; /* Slightly darker border on hover */
+  background-color: #444; /* Slightly lighter dark on hover */
+  border-color: #777; /* Slightly lighter border on hover */
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .category-tab.active {
-  background-color: #0063c7; /* Primary blue for active tab */
+  background-color: #007bff; /* Primary blue for active tab */
   color: #ffffff;
-  border-color: #0063c7;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-color: #007bff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transform: translateY(-1px);
 }
 
 
 .selection-area {
   display: flex;
-  flex-direction: column; /* Changed to column to stack vertically */
+  flex-direction: column;
   justify-content: center;
-  gap: 30px; /* Gap between the product selectors */
+  gap: 30px;
   margin-bottom: 50px;
   flex-wrap: wrap;
-  padding: 0 30px; /* Add horizontal padding to align with header content */
+  padding: 0 30px;
 }
 
 .product-selector, .brand2-selector {
-  background-color: #ffffff; /* White background for selector cards */
+  background-color: #252525; /* Dark background for selector cards */
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  min-width: unset; /* Remove min-width */
-  width: 100%; /* Take full width of parent */
-  max-width: 100%; /* Ensure it doesn't exceed parent */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Darker shadow */
+  min-width: unset;
+  width: 100%;
+  max-width: 100%;
   text-align: left;
-  border: 1px solid #e0e0e0;
-  flex: none; /* Do not grow */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  border: 1px solid #3a3a3a; /* Darker border */
+  flex: none;
+  box-sizing: border-box;
 }
 
 .product-selector h2, .brand2-selector h2,
 .product-dropdown h3 {
   margin-top: 0;
-  color: #1a1a1a; /* Made headings almost black for better legibility */
+  color: #f0f0f0; /* Lighter headings */
   font-weight: 600;
   margin-bottom: 15px;
 }
@@ -144,30 +165,31 @@ select {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
-  border: 1px solid #cdd5dc;
+  border: 1px solid #555; /* Darker border */
   border-radius: 8px;
   font-size: 1.1em;
-  background-color: #ffffff;
-  color: #333;
-  font-weight: 500; /* Added bolder font weight for legibility */
+  background-color: #333; /* Darker background for select */
+  color: #e0e0e0; /* Lighter text for select */
+  font-weight: 500;
   cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added transitions */
 }
 
 select:focus {
   outline: none;
-  border-color: #4A90E2; /* A more distinct blue for focus */
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+  border-color: #007bff; /* Primary blue for focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 /* NEW: Styles for horizontal drilldown dropdowns */
 .drilldown-grid-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Space between dropdown items */
+  gap: 20px;
 }
 
 .drilldown-item {
-  flex: 1 1 calc(50% - 10px); /* Two columns, responsive */
+  flex: 1 1 calc(50% - 10px);
   box-sizing: border-box;
 }
 
@@ -175,12 +197,11 @@ select:focus {
 .drilldown-item h3 {
   margin-top: 0;
   margin-bottom: 10px;
-  font-size: 1.2em; /* Adjust font size for better fit */
+  font-size: 1.2em;
 }
 
-/* Ensure select elements within drilldown-item take full width of their container */
 .drilldown-item select {
-  margin-bottom: 0; /* Remove extra margin */
+  margin-bottom: 0;
 }
 
 
@@ -190,15 +211,15 @@ select:focus {
   gap: 30px;
   margin-top: 40px;
   flex-wrap: wrap;
-  padding: 0 30px 40px; /* Add horizontal padding and bottom padding */
+  padding: 0 30px 40px;
 }
 
 .product-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: #252525; /* Dark background for product cards */
+  border: 1px solid #3a3a3a; /* Darker border */
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   flex: 1;
   min-width: 380px;
   max-width: 48%;
@@ -209,99 +230,101 @@ select:focus {
   border-left-style: solid;
 }
 
-/* Conditional Brand Borders - unchanged */
+/* Conditional Brand Borders - unchanged but colors might need review for dark mode contrast */
 .product-card.sargent {
-  border-left-color: #0063c7; /* Navy Blue */
+  border-left-color: #007bff; /* Brighter blue for contrast */
 }
 
 .product-card.corbin, .product-card.best {
-  border-left-color: #AF272F; /* Red */
+  border-left-color: #ff6b6b; /* Brighter red */
 }
 
 .product-card.accentra {
-  border-left-color: #6A057F; /* Purple */
+  border-left-color: #a879d7; /* Brighter purple */
 }
 
 .product-card.schlage, .product-card.von-duprin {
-  border-left-color: #E67E22; /* Orange */
+  border-left-color: #ffaa5c; /* Brighter orange */
 }
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .product-image {
-  max-width: 80%; /* Slightly smaller images for better card balance */
+  max-width: 80%;
   height: 140px;
   object-fit: contain;
   margin-bottom: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 8px; /* Consistent border radius for images */
+  border: 1px solid #444; /* Subtle border for images */
 }
 
 .product-card h2 {
-  color: #4a6a8a;
+  color: #b0b0b0; /* Lighter color */
   margin-top: 10px;
   margin-bottom: 8px;
-  font-size: 1.3em; /* Slightly smaller font */
+  font-size: 1.3em;
   line-height: 1.4;
 }
 
 .product-card h3 {
-  color: #2c3e50;
+  color: #e0e0e0; /* Lighter color */
   margin-top: 15px;
   margin-bottom: 10px;
-  font-size: 1.5em; /* Adjusted font size */
+  font-size: 1.5em;
   font-weight: 600;
 }
 
 .product-category {
   font-style: italic;
-  color: #5f6c7a; /* Darker color for better contrast */
+  color: #999; /* Muted light color */
   margin-bottom: 15px;
   font-size: 0.95em;
 }
 
 .product-price {
-  font-size: 1.7em; /* Slightly smaller price text */
+  font-size: 1.7em;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: #e0e0e0; /* Lighter color */
 }
 
 .green-price {
-  color: #28a745; /* Deeper green for better contrast */
+  color: #28a745; /* Green for better contrast on dark */
 }
 
 .red-price {
-  color: #dc3545; /* Deeper red for better contrast */
+  color: #dc3545; /* Red for better contrast on dark */
 }
 
 .product-card h4 {
-  color: #5b7e9b;
+  color: #b0b0b0; /* Lighter color */
   margin-top: 20px;
   margin-bottom: 8px;
-  font-size: 1.05em; /* Slightly smaller */
+  font-size: 1.05em;
 }
 
 .product-card p {
-  color: #5f6c7a;
+  color: #c0c0c0; /* Lighter color */
   line-height: 1.7;
   font-size: 0.95em;
 }
 
 .no-equivalent-message, .initial-message {
   margin-top: 40px;
-  margin-bottom: 40px; /* Added bottom margin for symmetry */
+  margin-bottom: 40px;
   font-size: 1.15em;
-  color: #8B4513; /* Darker brown for better contrast */
-  background-color: #fff8eb; /* Very light, warm background */
-  padding: 18px 30px; /* Increased padding */
+  color: #ffcc80; /* Warm, visible color */
+  background-color: #3a3a3a; /* Darker background */
+  padding: 18px 30px;
   border-radius: 8px;
   display: inline-block;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
@@ -312,7 +335,7 @@ select:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -320,27 +343,16 @@ select:focus {
 }
 
 .modal-content {
-  background: #ffffff;
+  background: #2c2c2c; /* Dark background */
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Stronger dark shadow */
   position: relative;
   width: 90%;
   max-width: 500px;
   text-align: left;
-  animation: slideIn 0.3s ease-out forwards; /* Simple animation */
-  color: #333;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  animation: slideIn 0.3s ease-out forwards;
+  color: #e0e0e0; /* Lighter text */
 }
 
 .modal-close-button {
@@ -351,18 +363,18 @@ select:focus {
   border: none;
   font-size: 1.5em;
   cursor: pointer;
-  color: #555;
+  color: #bbb; /* Lighter close button */
   padding: 5px;
   border-radius: 50%;
   transition: background-color 0.2s;
 }
 
 .modal-close-button:hover {
-  background-color: #f0f0f0;
+  background-color: #444; /* Darker hover for close button */
 }
 
 .modal-content h2 {
-  color: #0063c7;
+  color: #007bff; /* Primary blue for modal heading */
   margin-top: 0;
   margin-bottom: 25px;
   font-size: 1.8em;
@@ -379,7 +391,7 @@ select:focus {
   display: flex;
   justify-content: space-between;
   padding: 12px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #444; /* Darker separator */
   font-size: 1.1em;
 }
 
@@ -389,7 +401,7 @@ select:focus {
 
 .prefix-name {
   font-weight: bold;
-  color: #2c3e50;
+  color: #e0e0e0; /* Lighter text */
 }
 
 .prefix-price-addon {
@@ -398,11 +410,11 @@ select:focus {
 }
 
 .prefix-price-addon.negative {
-  color: #dc3545; /* Red for negative add-ons, if applicable */
+  color: #dc3545; /* Red for negative add-ons */
 }
 
 .show-prefixes-button {
-  background-color: #0063c7;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -411,8 +423,8 @@ select:focus {
   font-size: 1em;
   margin-top: 20px;
   transition: background-color 0.2s ease;
-  width: 100%; /* Make button full width of card */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .show-prefixes-button:hover {
@@ -421,20 +433,20 @@ select:focus {
 
 /* NEW: Brand Prefixes Display styles */
 .brand-prefixes-container {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: #252525;
+  border: 1px solid #3a3a3a;
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  margin: 40px auto; /* Center it below the selection area */
-  max-width: 96%; /* Adjusted from 1300px to fit within App max-width */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  margin: 40px auto;
+  max-width: 96%;
   width: 100%;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
   text-align: left;
 }
 
 .brand-prefixes-container h3 {
-  color: #0063c7;
+  color: #007bff;
   margin-top: 0;
   margin-bottom: 25px;
   font-size: 1.6em;
@@ -442,22 +454,22 @@ select:focus {
 }
 
 .prefix-section {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #444;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 20px;
-  background-color: #fcfcfc;
+  background-color: #333;
 }
 
 .prefix-section h4 {
-  color: #2c3e50;
+  color: #e0e0e0;
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 1.2em;
 }
 
 .prefix-section p {
-  color: #5f6c7a;
+  color: #c0c0c0;
   font-size: 0.9em;
   margin-bottom: 10px;
 }
@@ -465,11 +477,11 @@ select:focus {
 .prefix-section .devices-available {
   margin-top: 10px;
   padding-top: 10px;
-  border-top: 1px dashed #eee;
+  border-top: 1px dashed #555;
 }
 
 .prefix-section .devices-available strong {
-  color: #4a6a8a;
+  color: #b0b0b0;
   display: block;
   margin-bottom: 5px;
 }
@@ -478,7 +490,7 @@ select:focus {
   list-style: disc;
   padding-left: 20px;
   margin: 0;
-  color: #5f6c7a;
+  color: #c0c0c0;
   font-size: 0.9em;
 }
 
@@ -489,7 +501,7 @@ select:focus {
 
 @keyframes pulse {
   0% {
-    border-color: #a8b8c5; /* Start with the normal border color */
+    border-color: #555; /* Start with the normal dark border color */
     box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); /* No initial shadow */
   }
   100% {
