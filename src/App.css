@@ -382,8 +382,6 @@ select:focus {
   border-radius: 25PX;
 }
 
-.prefix-item:last-child {
-}
 
 .prefix-name {
   font-weight: bold;
@@ -419,11 +417,6 @@ select:focus {
   padding: 8px 0; /* Adjust padding for grid items */
 }
 
-/* Add a border between columns for better visual separation if desired */
-.prefix-list.multi-column {
-    /* For a vertical line between columns (conceptual): */
-    /* border-right: 1px solid #555; /* On the container if you want a divider */
-}
 
 
 .show-prefixes-button {
