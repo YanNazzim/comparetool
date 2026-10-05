@@ -1,28 +1,28 @@
-// src/App.js
-import React, { useState, useRef, useEffect } from 'react'; // Import useRef and useEffect
+// src/App.jsx
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import allBrandsData from './data/products';
 import ProductDrillDownSelector from './components/ProductDrillDownSelector';
 import ComparisonDisplay from './components/ComparisonDisplay';
-import Images from './Images/images'; // Import the images module
-import PrefixesModal from './components/PrefixesModal'; // NEW: Import PrefixesModal
+import ConversationalSpecAdvisor from './components/ConversationalSpecAdvisor';
+import PrefixesModal from './components/PrefixesModal';
+import Images from './Images/images';
+import { findProductById, findEquivalentProducts } from './utils/hardwareEngine';
 
 function App() {
-  const [selectedMajorCategory, setSelectedMajorCategory] = useState('');
+  const [viewMode, setViewMode] = useState('AI'); // 'AI' or 'CLASSIC'
+  const [selectedMajorCategory, setSelectedMajorCategory] = useState('Exit Devices');
   const [selectedProduct1, setSelectedProduct1] = useState(null);
   const [selectedBrand2, setComparedBrand2] = useState('');
   const [comparedProduct2, setComparedProduct2] = useState(null);
-  const [equivalentOptions, setEquivalentOptions] = useState([]); // every equivalent of product 1 in the chosen brand
-  const [isPrefixesModalOpen, setIsPrefixesModalOpen] = useState(false); // NEW: State for modal visibility
-  const [productForPrefixesModal, setProductForPrefixesModal] = useState(null); // NEW: State for product data to show in modal
+  const [equivalentOptions, setEquivalentOptions] = useState([]);
+  const [isPrefixesModalOpen, setIsPrefixesModalOpen] = useState(false);
+  const [productForPrefixesModal, setProductForPrefixesModal] = useState(null);
 
-  // Create a ref for the comparison container
   const comparisonRef = useRef(null);
+  const allowedOtherBrands = ['Von Duprin', 'Best', 'Schlage'];
 
-  // Define the brands that can be compared against Sargent
-  const allowedOtherBrands = ['Best', 'Von Duprin', 'Schlage'];
-
-  // Helper to get unique major categories
+  // Unique major categories
   const getUniqueMajorCategories = () => {
     const categories = new Set();
     allBrandsData.forEach(brand => {
@@ -35,46 +35,26 @@ function App() {
 
   const majorCategories = getUniqueMajorCategories();
 
-  const findProductById = (productId) => {
-    if (!productId) return null;
-    for (const brandData of allBrandsData) {
-      for (const categoryData of brandData.categories) {
-        for (const subCategoryData of categoryData.subCategories) {
-          for (const seriesData of subCategoryData.series) {
-            for (const modelData of seriesData.models) {
-              const foundFunction = modelData.functions.find(f => f.id === productId);
-              if (foundFunction) {
-                return {
-                  ...foundFunction,
-                  brand: brandData.brand,
-                  category: categoryData.name,
-                  subCategory: subCategoryData.name,
-                  seriesName: seriesData.seriesName,
-                  modelNumber: modelData.modelNumber,
-                };
-              }
-            }
-          }
-        }
-      }
+  // Set default demo comparison on first load if desired
+  useEffect(() => {
+    const defaultP1 = findProductById('sargent-8313-et');
+    if (defaultP1) {
+      setSelectedProduct1(defaultP1);
+      setComparedBrand2('Von Duprin');
+      const eq = findEquivalentProducts(defaultP1, 'Von Duprin');
+      setEquivalentOptions(eq);
+      setComparedProduct2(eq[0] || null);
     }
-    return null;
-  };
-
-  // All equivalents of product1 in the target brand, best match first
-  const findEquivalentProducts = (product1, targetBrandName) => {
-    if (!product1 || !targetBrandName) return [];
-
-    return product1.equivalentProductIds
-      .map(findProductById)
-      .filter(product => product && product.brand === targetBrandName);
-  };
+  }, []);
 
   const handleProduct1FinalSelection = (productFunctionId) => {
     const fullProduct = findProductById(productFunctionId);
     setSelectedProduct1(fullProduct);
 
-    // Reset Brand 2 selection and comparison when Product 1 changes
+    if (fullProduct && fullProduct.category) {
+      setSelectedMajorCategory(fullProduct.category);
+    }
+
     setComparedBrand2('');
     setComparedProduct2(null);
     setEquivalentOptions([]);
@@ -97,11 +77,9 @@ function App() {
     setComparedBrand2('');
     setComparedProduct2(null);
     setEquivalentOptions([]);
-    setIsPrefixesModalOpen(false); // Close modal if open
-    setProductForPrefixesModal(null); // Clear modal product
+    setIsPrefixesModalOpen(false);
   };
 
-  // NEW: Handlers for Prefixes Modal
   const handleShowPrefixesModal = (product) => {
     setProductForPrefixesModal(product);
     setIsPrefixesModalOpen(true);
@@ -112,132 +90,178 @@ function App() {
     setProductForPrefixesModal(null);
   };
 
-  // Filter available brand 2 options based on selectedProduct1
-  const getAvailableBrand2Options = () => {
-    if (!selectedProduct1) {
-      // If no product 1 is selected yet, no brands can be selected for Brand 2.
-      // This helps guide the user to select Product 1 first.
-      return [];
+  // Callback from AI Assistant to immediately open classic comparison
+  const handleSelectFromAdvisor = (p1, p2) => {
+    setSelectedProduct1(p1);
+    if (p1 && p1.category) {
+      setSelectedMajorCategory(p1.category);
     }
-
-    const brand1 = selectedProduct1.brand;
-    if (brand1 === 'Sargent') {
-      // If Product 1 is Sargent, Brand 2 can be any of the allowed other brands
-      return allowedOtherBrands;
-    } else if (allowedOtherBrands.includes(brand1)) {
-      // If Product 1 is one of the allowed other brands, Brand 2 must be Sargent
-      return ['Sargent'];
+    if (p2) {
+      setComparedBrand2(p2.brand);
+      const eq = findEquivalentProducts(p1, p2.brand);
+      setEquivalentOptions(eq);
+      setComparedProduct2(p2);
     }
-    // If Product 1 is from any other brand not in the allowed list,
-    // or if the comparison logic needs to be stricter, return an empty array
-    return [];
+    setViewMode('CLASSIC');
+    setTimeout(() => {
+      comparisonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
   };
 
-  const availableBrand2Options = getAvailableBrand2Options();
-
-  // Effect to scroll to the comparison section when both products are selected
+  // Scroll to comparison section when comparison is active in Classic mode
   useEffect(() => {
-    if (selectedProduct1 && comparedProduct2 && comparisonRef.current) {
-      comparisonRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (selectedProduct1 && comparedProduct2 && comparisonRef.current && viewMode === 'CLASSIC') {
+      const timer = setTimeout(() => {
+        comparisonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+      return () => clearTimeout(timer);
     }
-  }, [selectedProduct1, comparedProduct2]);
-
+  }, [selectedProduct1, comparedProduct2, viewMode]);
 
   return (
     <div className="App">
-      <div className="navbar-header">
-        <img src={Images.AllBrandsLogo} alt="All Brands Logo" className="Logo"/>
-        <h1>Sargent Product Comparison Tool</h1>
-      </div>
-
-      <div className="category-tabs-container">
-        <h2>Select a Product Category:</h2>
-        <div className="category-tabs">
-          {majorCategories.map((category) => (
-            <button
-              key={category}
-              className={`category-tab ${selectedMajorCategory === category ? 'active' : ''}`}
-              onClick={() => handleMajorCategorySelection(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {selectedMajorCategory && (
-        <>
-          <div className="selection-area">
-            <ProductDrillDownSelector
-              allBrandsData={allBrandsData}
-              onSelectFinalProduct={handleProduct1FinalSelection}
-              selectedProductId={selectedProduct1?.id || ''}
-              selectedBrandName={selectedProduct1?.brand || ''}
-              labelPrefix="Compare"
-              initialCategory={selectedMajorCategory}
-            />
-
-            <div className="brand2-selector">
-              <h2>Compare To:</h2>
-              <select
-                value={selectedBrand2}
-                onChange={(e) => handleBrand2Selection(e.target.value)}
-                disabled={!selectedProduct1} // Disable until Product 1 is selected
-              >
-                <option value="">Select Brand 2</option>
-                {availableBrand2Options.map(brandName => (
-                    <option key={brandName} value={brandName}>
-                      {brandName}
-                    </option>
-                  ))}
-              </select>
-
-              {/* Several series can match the same device - let the user flip between them */}
-              {equivalentOptions.length > 1 && (
-                <select
-                  className="equivalent-select"
-                  aria-label="Series to compare"
-                  value={comparedProduct2?.id || ''}
-                  onChange={(e) => handleEquivalentSelection(e.target.value)}
-                >
-                  {equivalentOptions.map(product => (
-                    <option key={product.id} value={product.id}>
-                      {product.seriesName} - {product.modelNumber}
-                    </option>
-                  ))}
-                </select>
-              )}
-            </div>
+      {/* Top Navigation Bar */}
+      <header className="navbar-header">
+        <div className="header-brand-wrap">
+          <div className="header-logo-badge">
+            <img src={Images.AllBrandsLogo} alt="Architectural Brands: Sargent, Von Duprin, Best, Schlage" className="Logo" />
           </div>
-
-        </>
-      )}
-
-      {(selectedProduct1 && comparedProduct2) && (
-        <div ref={comparisonRef}>
-          <ComparisonDisplay
-            product1={selectedProduct1}
-            product2={comparedProduct2}
-            onShowPrefixes={handleShowPrefixesModal}
-          />
+          <div className="header-text-block">
+            <div className="header-title-row">
+              <h1>Sargent Product Comparison Tool</h1>
+              <span className="header-status-badge">
+                <span className="status-dot"></span> Grade 1 Specification Engine
+              </span>
+            </div>
+            <p className="header-subtitle">
+              Architectural Hardware Cross-Reference & ANSI/BHMA Function Bridge
+            </p>
+          </div>
         </div>
-      )}
 
-      {selectedMajorCategory && !selectedProduct1 && (
-        <p className="initial-message">Please select Brand and Product Function for Brand 1, then select Brand 2 to begin comparison.</p>
-      )}
+        {/* Minimal View Switcher */}
+        <div className="view-mode-selector">
+          <button
+            className={`view-mode-pill ${viewMode === 'AI' ? 'active' : ''}`}
+            onClick={() => setViewMode('AI')}
+          >
+            ✨ AI Spec Advisor
+          </button>
+          <button
+            className={`view-mode-pill ${viewMode === 'CLASSIC' ? 'active' : ''}`}
+            onClick={() => setViewMode('CLASSIC')}
+          >
+            📋 Classic Comparison
+          </button>
+        </div>
+      </header>
 
-      {selectedProduct1 && !comparedProduct2 && selectedBrand2 && (
-        <p className="no-equivalent-message">
-          No direct equivalent found for "{selectedProduct1.functionName}" ({selectedProduct1.brand} {selectedProduct1.seriesName} {selectedProduct1.modelNumber}) in "{selectedBrand2}".
-        </p>
-      )}
+      {/* Main Body */}
+      <main className="main-content">
+        {viewMode === 'AI' ? (
+          <ConversationalSpecAdvisor onSelectComparison={handleSelectFromAdvisor} />
+        ) : (
+          <div className="classic-selector-view">
+            {/* Category Tabs */}
+            <div className="category-tabs-container">
+              <h2>Select Product Category:</h2>
+              <div className="category-tabs">
+                {majorCategories.map((category) => (
+                  <button
+                    key={category}
+                    className={`category-tab ${selectedMajorCategory === category ? 'active' : ''}`}
+                    onClick={() => handleMajorCategorySelection(category)}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-      {!selectedMajorCategory && (
-        <p className="initial-message">Please select a product category above to begin.</p>
-      )}
+            {/* Selection Grid */}
+            {selectedMajorCategory && (
+              <div className="selection-area">
+                <div className="selection-column left">
+                  <div className="column-title">1. Baseline Hardware (Sargent)</div>
+                  <ProductDrillDownSelector
+                    allBrandsData={allBrandsData}
+                    onSelectFinalProduct={handleProduct1FinalSelection}
+                    selectedProductId={selectedProduct1?.id || ''}
+                    selectedBrandName={selectedProduct1?.brand || ''}
+                    labelPrefix="Select"
+                    initialCategory={selectedMajorCategory}
+                  />
+                </div>
 
-      {/* NEW: Prefixes Modal */}
+                <div className="selection-column right">
+                  <div className="column-title">2. Approved Equivalent Brand</div>
+                  <div className="brand2-selector">
+                    <h3>Select Competitor Brand:</h3>
+                    <select
+                      value={selectedBrand2}
+                      onChange={(e) => handleBrand2Selection(e.target.value)}
+                      disabled={!selectedProduct1}
+                    >
+                      <option value="">Select Target Brand</option>
+                      {allowedOtherBrands.map(brandName => (
+                        <option key={brandName} value={brandName}>
+                          {brandName}
+                        </option>
+                      ))}
+                    </select>
+
+                    {equivalentOptions.length > 1 && (
+                      <div className="series-flip-wrap">
+                        <h3>Matching Series / Architecture:</h3>
+                        <select
+                          className="equivalent-select"
+                          value={comparedProduct2?.id || ''}
+                          onChange={(e) => handleEquivalentSelection(e.target.value)}
+                        >
+                          {equivalentOptions.map(product => (
+                            <option key={product.id} value={product.id}>
+                              {product.seriesName} - {product.modelNumber}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Comparison Display */}
+            {selectedProduct1 && comparedProduct2 && (
+              <div ref={comparisonRef} className="comparison-section">
+                <ComparisonDisplay
+                  product1={selectedProduct1}
+                  product2={comparedProduct2}
+                  onShowPrefixes={handleShowPrefixesModal}
+                />
+              </div>
+            )}
+
+            {selectedMajorCategory && !selectedProduct1 && (
+              <div className="selector-prompt-card">
+                <div className="prompt-icon">👈</div>
+                <p>Please select Series, Model, and Function in Column 1 to begin comparison.</p>
+              </div>
+            )}
+
+            {selectedProduct1 && !comparedProduct2 && selectedBrand2 && (
+              <div className="no-equivalent-card">
+                <div className="prompt-icon">⚠️</div>
+                <p>
+                  No direct equivalent found for <strong>"{selectedProduct1.functionName}"</strong> in <strong>"{selectedBrand2}"</strong>.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+      </main>
+
+      {/* Prefixes Modal */}
       <PrefixesModal
         isOpen={isPrefixesModalOpen}
         onClose={handleClosePrefixesModal}
