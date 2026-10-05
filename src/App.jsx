@@ -12,6 +12,7 @@ function App() {
   const [selectedProduct1, setSelectedProduct1] = useState(null);
   const [selectedBrand2, setComparedBrand2] = useState('');
   const [comparedProduct2, setComparedProduct2] = useState(null);
+  const [equivalentOptions, setEquivalentOptions] = useState([]); // every equivalent of product 1 in the chosen brand
   const [isPrefixesModalOpen, setIsPrefixesModalOpen] = useState(false); // NEW: State for modal visibility
   const [productForPrefixesModal, setProductForPrefixesModal] = useState(null); // NEW: State for product data to show in modal
 
@@ -60,16 +61,13 @@ function App() {
     return null;
   };
 
-  const findEquivalentProduct = (product1, targetBrandName) => {
-    if (!product1 || !targetBrandName) return null;
+  // All equivalents of product1 in the target brand, best match first
+  const findEquivalentProducts = (product1, targetBrandName) => {
+    if (!product1 || !targetBrandName) return [];
 
-    for (const equivalentId of product1.equivalentProductIds) {
-      const equivalentProduct = findProductById(equivalentId);
-      if (equivalentProduct && equivalentProduct.brand === targetBrandName) {
-          return equivalentProduct;
-      }
-    }
-    return null;
+    return product1.equivalentProductIds
+      .map(findProductById)
+      .filter(product => product && product.brand === targetBrandName);
   };
 
   const handleProduct1FinalSelection = (productFunctionId) => {
@@ -79,16 +77,18 @@ function App() {
     // Reset Brand 2 selection and comparison when Product 1 changes
     setComparedBrand2('');
     setComparedProduct2(null);
+    setEquivalentOptions([]);
   };
 
   const handleBrand2Selection = (brand) => {
     setComparedBrand2(brand);
-    if (selectedProduct1 && brand) {
-      const equivalent = findEquivalentProduct(selectedProduct1, brand);
-      setComparedProduct2(equivalent);
-    } else {
-      setComparedProduct2(null);
-    }
+    const equivalents = findEquivalentProducts(selectedProduct1, brand);
+    setEquivalentOptions(equivalents);
+    setComparedProduct2(equivalents[0] || null);
+  };
+
+  const handleEquivalentSelection = (productId) => {
+    setComparedProduct2(equivalentOptions.find(product => product.id === productId) || null);
   };
 
   const handleMajorCategorySelection = (category) => {
@@ -96,6 +96,7 @@ function App() {
     setSelectedProduct1(null);
     setComparedBrand2('');
     setComparedProduct2(null);
+    setEquivalentOptions([]);
     setIsPrefixesModalOpen(false); // Close modal if open
     setProductForPrefixesModal(null); // Clear modal product
   };
@@ -190,6 +191,22 @@ function App() {
                     </option>
                   ))}
               </select>
+
+              {/* Several series can match the same device - let the user flip between them */}
+              {equivalentOptions.length > 1 && (
+                <select
+                  className="equivalent-select"
+                  aria-label="Series to compare"
+                  value={comparedProduct2?.id || ''}
+                  onChange={(e) => handleEquivalentSelection(e.target.value)}
+                >
+                  {equivalentOptions.map(product => (
+                    <option key={product.id} value={product.id}>
+                      {product.seriesName} - {product.modelNumber}
+                    </option>
+                  ))}
+                </select>
+              )}
             </div>
           </div>
 

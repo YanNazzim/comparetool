@@ -8,6 +8,9 @@ function ComparisonDisplay({ product1, product2, onShowPrefixes }) { // Added on
 
   // Determine price highlighting based on minPrice comparison
   const getPriceColor = (currentProductMinPrice, otherProductMinPrice) => {
+    if (currentProductMinPrice == null || otherProductMinPrice == null) {
+      return ''; // Price TBD on at least one side - nothing to compare
+    }
     if (currentProductMinPrice < otherProductMinPrice) {
       return 'green-price';
     } else if (currentProductMinPrice > otherProductMinPrice) {
@@ -15,6 +18,12 @@ function ComparisonDisplay({ product1, product2, onShowPrefixes }) { // Added on
     }
     return ''; // No specific highlight if min prices are equal
   };
+
+  // Prices that haven't been loaded yet are stored as null
+  const formatPriceRange = (product) =>
+    product.minPrice == null || product.maxPrice == null
+      ? 'Price TBD'
+      : `$${product.minPrice.toFixed(2)} - $${product.maxPrice.toFixed(2)}`;
 
   // Helper to convert brand names to CSS friendly class names
   const getBrandClass = (brandName) => {
@@ -35,7 +44,7 @@ function ComparisonDisplay({ product1, product2, onShowPrefixes }) { // Added on
         <h3>{product1.functionName}</h3>
         <p className="product-category">Category: {product1.category}</p>
         <p className={`product-price ${product1PriceClass}`}>
-          Price Range: ${product1.minPrice.toFixed(2)} - ${product1.maxPrice.toFixed(2)}
+          Price Range: {formatPriceRange(product1)}
         </p>
         <h4>Description:</h4>
         <p dangerouslySetInnerHTML={{ __html: product1.description }}></p>
@@ -53,7 +62,7 @@ function ComparisonDisplay({ product1, product2, onShowPrefixes }) { // Added on
         <h3>{product2.functionName}</h3>
         <p className="product-category">Category: {product2.category}</p>
         <p className={`product-price ${product2PriceClass}`}>
-          Price Range: ${product2.minPrice.toFixed(2)} - ${product2.maxPrice.toFixed(2)}
+          Price Range: {formatPriceRange(product2)}
         </p>
         <h4>Description:</h4>
         <p dangerouslySetInnerHTML={{ __html: product2.description }}></p>

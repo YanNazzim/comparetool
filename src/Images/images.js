@@ -1,26 +1,36 @@
 // src/Images/Images.js
 
+import AllBrandsLogo from './All Brands.png';
+import CorbinRusswinLogo from './CorbinRusswin Logo.png';
+import SargentLogo from './Sargent Logo.png';
+import SAR8300 from './SAR8300.png';
+import AccentraLogo from './ACCENTRA Logo.png';
+import BESTAccessLogo from './BESTAccess Logo.png';
+import VonDuprinLogo from './Von Duprin Logo.png';
+import VD9875 from './VD9875.png';
+import SchlageLogo from './Schlage Logo.png';
+
 const Images = {
-  AllBrandsLogo: require('./All Brands.png'),
+  AllBrandsLogo,
 
   // Corbin Russwin
-  CorbinRusswinLogo: require('./CorbinRusswin Logo.png'),
+  CorbinRusswinLogo,
 
   //Sargent Manufacturing
-  SargentLogo: require('./Sargent Logo.png'),
-  SAR8300: require('./SAR8300.png'),
+  SargentLogo,
+  SAR8300,
 
   // ACCENTRA
-  AccentraLogo: require('./ACCENTRA Logo.png'),
+  AccentraLogo,
 
   // BEST
-  BESTAccessLogo: require('./BESTAccess Logo.png'),
+  BESTAccessLogo,
 
   // Von Duprin
-  VonDuprinLogo: require('./Von Duprin Logo.png'),
-  VD9875: require('./VD9875.png'),
+  VonDuprinLogo,
+  VD9875,
   // Schlage
-  SchlageLogo: require('./Schlage Logo.png'),
+  SchlageLogo,
 };
 
 export default Images;
